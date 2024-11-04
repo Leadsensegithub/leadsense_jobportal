@@ -1,0 +1,145 @@
+.landingPage .header {
+    display: flex;
+    justify-content: center;
+
+
+}
+
+.landingPage .header .header-body {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    /* Center items vertically */
+    justify-content: space-between;
+    /* Space items evenly */
+    padding: 20px;
+    background-color: #AFC9F3;
+    border-radius: 50px;
+    position: fixed;
+    width: 1300px;
+    top: 0;
+    /* Ensure the header stays at the top */
+    z-index: 1000;
+    position: relative;
+    /* Ensure the header stays on top of other elements */
+}
+
+.landingPage .header img {
+    width: 170px;
+    max-width: 100%;
+    /* Ensure the image is responsive */
+    height: auto;
+    /* Maintain aspect ratio */
+}
+
+.info-body {
+    width: 50%;
+    margin-top: 7%;
+
+}
+
+.info-body h1 {
+    text-align: start;
+    padding: 0px 9.5%;
+    margin-top: 10px;
+}
+
+.landingPage .header .buttons-info {
+    text-wrap: nowrap;
+    width: 600px;
+}
+
+.landingPage .header .buttons-info .login {
+
+    padding: 10px 5%;
+    background-color: #AFC9F3;
+    color: #547DBF;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 10px;
+    box-shadow: 1px 1px 12px #c2cddd;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.landingPage .header .buttons-info .login:hover {
+    transform: scale(1.05);
+}
+
+.landingPage .header .buttons-info .register {
+    background-color: red;
+    color: white;
+    padding: 10px 5%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-right: 10px;
+    border: none;
+
+}
+
+
+
+.landingPage .header .buttons-info .c_register {
+    background-color: red;
+    color: white;
+    padding: 10px 5%;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 10px;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.landingPage .header .buttons-info .register:hover {
+    transform: scale(1.05);
+}
+
+.landingPage .header .buttons-info .c_register:hover {
+    transform: scale(1.05);
+}
+
+.landingPage .search_info {
+    margin-top: 10%;
+    margin-left: 10px 5.3%;
+
+
+
+}
+
+.imgs {
+    position: absolute;
+    right: 0;
+
+}
+
+.imgs img {
+    width: 100%;
+    height: 700px;
+    margin-top: 5%;
+}
+
+.landingPage .search_info input {
+    height: 50px;
+    border-right: 1px solid black;
+    border-top: 1px solid rgb(218, 214, 214);
+    border-bottom: 1px solid rgb(210, 205, 205);
+    border-left: 1px solid rgb(214, 208, 208);
+
+}
+
+.landingPage .search_info .skills {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.landingPage .search_info button {
+    height: 50.2px;
+    padding: 0px 30px;
+    border-left: 0px solid black;
+    background-color: red;
+    color: white;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border: none;
+}
