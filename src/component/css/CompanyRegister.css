@@ -7,7 +7,7 @@
     border-radius:10px
 }
 .shadow-bottom {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adjust values as needed */
 }
 .headername{
     font-size:27px
@@ -38,3 +38,24 @@
 .paraStyleRight{
     margin-right:205px;
 }
+
+
+.paraStyle {
+    margin-top: 5px; /* Ensures spacing between input field and error message */
+  }
+  
+  .paraStyleleft {
+    margin-left: 135px;
+  }
+  
+  .paraStyleRight {
+    margin-right: 205px;
+  }
+  
+  .paraStyleCenter {
+    text-align: center; /* This centers the text */
+    width: 100%; /* Ensure the text container takes up full width */
+    margin: 0 auto; /* Auto margin for centering */
+    padding: 10px 0; /* Optional: Adjust padding as needed */
+  }
+  

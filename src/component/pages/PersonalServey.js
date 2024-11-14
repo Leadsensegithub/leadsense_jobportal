@@ -23,7 +23,7 @@ const PersonalSurvey = () => {
     city: "",
     state: "",
     country: "",
-    relocate: ""
+    relocate: "",
   });
 
   const [errors, setErrors] = useState({
@@ -33,7 +33,7 @@ const PersonalSurvey = () => {
     city: "",
     state: "",
     country: "",
-    relocate: ""
+    relocate: "",
   });
   function handleButtonSkip() {
     setLoader(true);
@@ -42,7 +42,9 @@ const PersonalSurvey = () => {
     const newErrors = {};
     Object.keys(data).forEach((field) => {
       if (!data[field]) {
-        newErrors[field] = `Please enter ${field.replace(/([A-Z])/g, " $1").toLowerCase()}`;
+        newErrors[field] = `Please enter ${field
+          .replace(/([A-Z])/g, " $1")
+          .toLowerCase()}`;
       }
     });
     setErrors(newErrors);
@@ -61,7 +63,7 @@ const PersonalSurvey = () => {
     } else {
       setErrors((prevErrors) => ({
         ...prevErrors,
-        [name]: `Please enter ${name.replace(/([A-Z])/g, " $1").toLowerCase()}`
+        [name]: `Please enter ${name.replace(/([A-Z])/g, " $1").toLowerCase()}`,
       }));
     }
   };

@@ -1,3 +1,4 @@
+ 
 .landingPage .header {
     display: flex;
     justify-content: center;
@@ -9,27 +10,27 @@
     margin-top: 30px;
     display: flex;
     align-items: center;
-    /* Center items vertically */
+   
     justify-content: space-between;
-    /* Space items evenly */
+  
     padding: 20px;
     background-color: #AFC9F3;
     border-radius: 50px;
     position: fixed;
     width: 1300px;
     top: 0;
-    /* Ensure the header stays at the top */
+ 
     z-index: 1000;
     position: relative;
-    /* Ensure the header stays on top of other elements */
+ 
 }
 
 .landingPage .header img {
     width: 170px;
     max-width: 100%;
-    /* Ensure the image is responsive */
+ 
     height: auto;
-    /* Maintain aspect ratio */
+ 
 }
 
 .info-body {
@@ -102,6 +103,7 @@
 .landingPage .search_info {
     margin-top: 10%;
     margin-left: 10px 5.3%;
+    
 
 
 
@@ -143,3 +145,453 @@
     border-bottom-right-radius: 30px;
     border: none;
 }
+
+
+/* .head_card{
+    background-color: #547DBF;
+    margin-top: 300px;
+    width: 60%;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 50px;
+    padding-left: 100px;
+    
+
+}
+
+.head_card p{
+    margin-left: 20px;
+}
+
+.trynow_btn{
+    margin-left: 100px;
+     margin-top: 20px;
+} */
+
+/* Full-width styling for head_card with reduced width */
+.head_card {
+    background-color: #CDDEF8;
+    width: 100%;  
+    max-width: 1350px;  
+    padding: 20px;
+    border-radius: 25px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto ;
+    margin-top: 300px;
+}
+
+ 
+.head_card p {
+    margin: 0;
+    color: #000000;
+    font-size: 1.1em;
+    text-align: left;
+}
+
+ 
+.trynow_btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    margin-right: 70px;
+}
+
+
+.cards{
+    background-color: #FFFFFF;
+    border: solid 1px gainsboro;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 30px;
+    margin-top: 70px;
+    border-radius: 10px;
+    
+}.job_intern {
+    display: flex;
+    gap: 30px;
+    margin-top: 80px;
+    border-bottom: 6px solid;
+    border-bottom-color: #547DBF;
+    margin-left: 30px;
+    flex-wrap: wrap; /* Allows wrapping for smaller screens */
+    justify-content: center; /* Centers items on small screens */
+  }
+  
+  .job_intern h1 {
+    font-weight: normal;
+    margin-bottom: 10px;
+  }
+  
+  .cards {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Full width on smaller screens */
+    max-width: 300px; /* Maximum width for each card */
+    margin-bottom: 20px;
+  }
+  
+  .cards p {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
+  @media (min-width: 576px) {
+    .cards {
+      width: 45%; /* 2 items per row on medium screens */
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .cards {
+      width: 30%; /* 3 items per row on large screens */
+    }
+  }
+  
+
+ .box_card {
+    background-color: hsl(164, 47%, 59%);
+    color: white;
+    display: flex;
+    margin-top: 40px;
+    padding: 10px 20px;
+    width: 100%;
+    height: auto; /* Adjusts height based on content */
+    box-sizing: border-box;
+    align-items: center;
+}
+
+
+
+ .event_card{
+    padding: 30px 30px 30px 30px;
+    margin-bottom: 20px;
+    height: 200px;
+    width: 200px;
+    align-items: center;
+    
+  
+ }
+
+
+ .empty-box{
+    padding: 30px;
+    margin-top: 20px;
+    border-radius: 30px;
+    margin-left: 50px;
+    background-color: #D9D9D9;
+    margin-top: 30px;
+    font-size: 100px;
+    height: 300px;
+    width: 93%;
+
+ }
+
+/* Base styles for the buy cards */
+.buy_card, .buy_card_gold {
+  border: solid 1px grey;
+  padding: 40px;
+  height: auto;
+  margin-top: 50px; /* Added space to move the cards down */
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  border-radius: 30px;
+  text-align: center;
+  transition: margin-top 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for desktop */
+.buy_card:hover, .buy_card_gold:hover {
+  margin-top: -10px; /* Hover effect only applies to the hovered card */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Styling for the gold card */
+.buy_card_gold {
+  background-color: #f5f5f5;
+}
+
+/* Button styling */
+.buy_card button {
+  margin-top: 20px;
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.buy_card button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Typography */
+.buy_card p {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .buy_card, .buy_card_gold {
+    padding: 30px;
+    width: 100%;
+  }
+
+  .head_card{
+    margin-left: 8px;
+  }
+ .box_card{
+  
+  margin-left: 25px;
+  padding: 40px;
+  padding-left: 5px;
+ }
+  .imgs{
+    width: 400px;
+    margin-top: 20px;
+  }
+
+  .empty-box{
+    margin-left: 20px;
+  }
+
+  .buy_card:hover, .buy_card_gold:hover {
+    margin-top: 0; /* Disable hover effect on mobile */
+    box-shadow: none; /* Remove hover shadow effect on mobile */
+  }
+}
+
+@media (max-width: 375px) {
+  .h1-contant h1 {
+    
+    font-size: small;
+    font-weight: normal;
+
+  }
+}
+
+@media (max-width: 425px) {
+ .mobile-res{
+display: block;
+ }
+}
+
+@media (max-width: 576px) {
+  .buy_card button {
+    padding: 10px 15px;
+    margin-top: 30px;
+  }
+ 
+
+  .mobile-res{
+    display: block;
+  }
+  .top-content h1{
+    font-size:  30px ;
+    
+  }
+
+  .top-content
+  {display: flex
+    ;}
+  
+  .landingPage .header .header-body {
+    display: block;
+  }
+ 
+  .buy_card {
+    padding: 20px;
+    width: 100%;
+  }
+
+  /* Optional: Add a similar effect for touch events */
+  .buy_card:active, .buy_card_gold:active {
+    margin-top: -10px; /* Simulate hover on touch devices */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15); /* Simulate box shadow on touch devices */
+  }
+}
+
+
+/* .career_img{
+    width: 100%;
+} */
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .career-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 20px;
+    margin-top: 50px;
+  }
+  
+  .career {
+    background-color: #CDDEF8;
+    border-radius: 4px;
+    padding: 20px;
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .career span {
+    display: block;
+    font-weight: 500;
+    margin-top: 20px;
+  }
+  
+  .career_img {
+    width: 100%;
+    max-width: 300px;
+    margin-top: 20px;
+    border-radius: 8px;
+  }
+  
+  /* Button Section */
+  .career_btn {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    max-width: 350px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .career_btn div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .career_btn button {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .career_btn button:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+  }
+  
+  /* Responsive Adjustments */
+ 
+
+  @media (max-width: 1440px) {
+  .mobile-res{
+    display: none;
+  }
+  }
+  @media (max-width: 768px) {
+    .career-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+.mobile-res{
+  display: none;
+}
+
+    .landingPage .search_info{
+      display: flex;
+      
+    }
+
+    .landingPage .search_info input{
+     width: 100px;
+     margin-left: 10px;
+    }
+  
+    .career {
+      width: 80%;
+      max-width: 100%;
+    }
+  
+    .career_btn {
+      flex-direction: column;
+      gap: 20px;
+      width: 80%;
+      max-width: 100%;
+    }
+  
+    .career_img {
+      width: 80%;
+      max-width: 280px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .career-container {
+      padding: 15px;
+    }
+
+  .mobile-res{
+    display: block;
+  }
+
+    .trynow_btn{
+      margin-right: 20px;
+    }
+  
+    .career {
+      width: 100%;
+      max-width: 100%;
+      padding: 15px;
+    }
+  
+    .career_img {
+      width: 100%;
+      max-width: 250px;
+      margin-top: 10px;
+    }
+  
+    .career_btn {
+      padding: 15px;
+      width: 100%;
+    }
+  
+    .career_btn button {
+      width: 100%;
+      font-size: 14px;
+    }
+    .mobile-res  {
+      width: 800px;
+    }
+  }
+  
+
+  @media (max-width: 425px) {
+ 
+
+    .mobile-res  {
+      width: 800px;
+      
+    }
+    }
+
+ 
+
+

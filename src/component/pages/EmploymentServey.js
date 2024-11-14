@@ -40,7 +40,9 @@ const EmploymentSurvey = () => {
     const newErrors = {};
     Object.keys(data).forEach((field) => {
       if (!data[field]) {
-        newErrors[field] = `Please enter ${field.replace(/([A-Z])/g, " $1").toLowerCase()}`;
+        newErrors[field] = `Please enter ${field
+          .replace(/([A-Z])/g, " $1")
+          .toLowerCase()}`;
       }
     });
     setErrors(newErrors);
@@ -58,13 +60,13 @@ const EmploymentSurvey = () => {
       ...prevState,
       [name]: value,
     }));
-    
+
     if (value) {
       setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
     } else {
       setErrors((prevErrors) => ({
         ...prevErrors,
-        [name]: `Please enter ${name.replace(/([A-Z])/g, " $1").toLowerCase()}`
+        [name]: `Please enter ${name.replace(/([A-Z])/g, " $1").toLowerCase()}`,
       }));
     }
   };
@@ -171,7 +173,10 @@ const EmploymentSurvey = () => {
         </div>
       </div>
       <div className="d-flex justify-content-end mt-4">
-        <SkipButton onClick={handleButtonSkip} className="btn btn-outline-secondary me-3">
+        <SkipButton
+          onClick={handleButtonSkip}
+          className="btn btn-outline-secondary me-3"
+        >
           Skip
         </SkipButton>
         <Button onClick={handleButton} className="btn btn-primary mt-5">

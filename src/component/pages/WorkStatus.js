@@ -12,8 +12,11 @@ const WorkStatus = () => {
     city: null,
     updates: null,
   });
-  
-  const [error, setError] = useState({ WorkStatusError: null, cityError: null });
+
+  const [error, setError] = useState({
+    WorkStatusError: null,
+    cityError: null,
+  });
 
   useEffect(() => {
     if (loading) {
@@ -45,6 +48,7 @@ const WorkStatus = () => {
     if (isValid) {
       setLoading(true);
     }
+    
   };
 
   const options = [
@@ -111,7 +115,7 @@ const WorkStatus = () => {
         </div>
         <div className="d-flex justify-content-start">
           <button
-            className={`btn btn-${buttonColorExp} btn-lg m-2 p-4 mt-0`}
+            className={`btn btn-${buttonColorExp} btn-lg m-2 p-4 mt-2`}
             onClick={handleButtonExp}
           >
             I'm Experienced

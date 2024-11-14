@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import "../css/OTP.css";
 import { useNavigate } from "react-router-dom";
 import Button from "../com/Button";
-
-function OTP({ onNext }) {
-  const nav = useNavigate();
+const CompanyOtp = () => {
+    const nav = useNavigate();
   const [otp, setOtp] = useState(["", "", "", ""]);
   const [error, SetError] = useState(false);
   const handleChange = (e, index) => {
@@ -19,18 +18,11 @@ function OTP({ onNext }) {
     }
   };
 
-  // const handleBackspace = (e, index) => {
-  //   if (e.key === "Backspace" && index > 0 && !otp[index]) {
-  //     document.getElementById(`otp-input-${index - 1}`).focus();
-  //   }
-  // };
-
   const handleButton = () => {
     const otpCheck = "0,0,0,0";
     let otpString = otp.toString();
     if (otpString === otpCheck) {
-      nav("/workstatus");
-      onNext();
+      nav("/card");
     } else {
       SetError(true);
     }
@@ -72,5 +64,4 @@ function OTP({ onNext }) {
     </>
   );
 }
-
-export default OTP;
+export default CompanyOtp

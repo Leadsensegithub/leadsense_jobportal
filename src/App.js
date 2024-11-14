@@ -15,7 +15,12 @@ import EmploymentServey from './component/pages/EmploymentServey';
 import ProgressBar from './component/com/ProgressBar';
 import { useEffect, useState } from 'react';
 import Last from './component/pages/Last (2)';
-import DefaultLayout from './component/com/DefaultLayout';
+import AboutUs from './component/pages/AboutUs';
+import CompanyRegister from './component/pages/CompanyRegister';
+import CompanyOtp from './component/pages/CompanyOtp';
+import Card from './component/pages/Card';
+import Search from './component/pages/Search';
+import DefaultCard from './component/com/DefaultCard';
 
 function App() {
   const location = useLocation();
@@ -48,14 +53,20 @@ function App() {
 
   return (
     <div className="App">
-      <DefaultLayout/>
+
       {startProgress && currentStep !== undefined && (
         <ProgressBar currentStep={currentStep} />
       )}
 
       <Routes>
+      <Route path="/defaultcard" element={<DefaultCard/>} />
+      <Route path="/companyRegister" element={<CompanyRegister/>} />
+      <Route path="/card" element={<Card/>} />
+      <Route path="/search" element={<Search/>} />
+      <Route path="/aboutus" element={<AboutUs/>} />
         <Route path="/" element={<LandingPage />} />
         <Route path="/register" element={<StudentRegister />} />
+        <Route path="/companyotp" element={<CompanyOtp/>} />
         <Route path="/otp" element={<OTP onNext={handleProgress} />} />
         <Route path="/lastpage" element={<Last/>} />
         <Route path="/workstatus" element={<WorkStatus />} />

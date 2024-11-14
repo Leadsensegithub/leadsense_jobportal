@@ -1,4 +1,3 @@
-/* Container Box */
 .Box-border {
     width: 80%;
     max-width: 600px;
@@ -8,8 +7,6 @@
     margin: 30px auto;
     border-radius: 10px;
 }
-
-/* OTP Input Boxes */
 .otp_input {
     display: flex;
     justify-content: center;
@@ -33,8 +30,6 @@
     margin: 40px auto;
     display: block;
 }
-
-/* Responsive Styles */
 @media (max-width: 768px) {
     .Box-border {
         width: 90%;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Select from "react-select";
 import { useNavigate } from "react-router-dom";
 import Loader from "../com/Loader";
-
+import '../css/form.css'
 const StudentRegister = () => {
   const [loading, setLoading] = useState(false);
   const nav = useNavigate();
@@ -130,15 +130,25 @@ const StudentRegister = () => {
               )}
             </div>
             <div className="col-12 col-md-6">
-              <Select
-                options={options}
-                value={data.flavor}
-                onChange={(selectedOption) =>
-                  handleSelectChange("flavor", selectedOption)
-                }
-                placeholder="Select Flavor"
-                className="w-100"
-              />
+            <Select
+      options={options}
+      value={data.flavor}
+      onChange={(selectedOption) =>
+        handleSelectChange("flavor", selectedOption)
+      }
+      placeholder="Select Flavor"
+      className="w-100"
+      styles={{
+        control: (base) => ({
+          ...base,
+          textAlign: "left",
+        }),
+        placeholder: (base) => ({
+          ...base,
+          textAlign: "left",
+        }),
+      }}
+    />
               {errors.flavorError && (
                 <small className="text-danger d-flex mt-2">Please select a valid option</small>
               )}
@@ -160,15 +170,25 @@ const StudentRegister = () => {
               )}
             </div>
             <div className="col-12 col-md-6">
-              <Select
-                options={options}
-                value={data.flavorTwo}
-                onChange={(selectedOption) =>
-                  handleSelectChange("flavorTwo", selectedOption)
-                }
-                placeholder="Select Another Flavor"
-                className="w-100"
-              />
+            <Select
+      options={options}
+      value={data.flavorTwo}
+      onChange={(selectedOption) =>
+        handleSelectChange("flavorTwo", selectedOption)
+      }
+      placeholder="Select Another Flavor"
+      className="w-100"
+      styles={{
+        control: (base) => ({
+          ...base,
+          textAlign: "left",
+        }),
+        placeholder: (base) => ({
+          ...base,
+          textAlign: "left",
+        }),
+      }}
+    />
               {errors.flavorTwoError && (
                 <small className="text-danger d-flex mt-2">Please select a valid option</small>
               )}

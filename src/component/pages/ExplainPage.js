@@ -19,7 +19,10 @@ const ExplainPage = () => {
   }, [loader, nav]);
 
   const countWords = (text) => {
-    return text.trim().split(/\s+/).filter(word => word.length > 0).length;
+    return text
+      .trim()
+      .split(/\s+/)
+      .filter((word) => word.length > 0).length;
   };
 
   const handleButton = () => {
@@ -62,15 +65,13 @@ const ExplainPage = () => {
             value={explanation}
           />
           {error && (
-            <small className="d-flex text-danger d-block mt-2">
-              {error}
-            </small>
+            <small className="d-flex text-danger d-block mt-2">{error}</small>
           )}
         </div>
 
         <div>
           <small
-            className="text-end mt-1 d-flex justify-content-center"
+            className="text-end mt-1 d-flex justify-content-end"
             style={{ marginLeft: "510px" }}
           >
             {countWords(explanation)}/50 words

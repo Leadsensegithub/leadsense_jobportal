@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import Button from '../com/Button';
+import React, { useEffect, useState } from "react";
+import Button from "../com/Button";
 import SkipButton from "../com/SkipButton";
-import { useNavigate } from 'react-router-dom';
-import Loader from '../com/Loader';
+import { useNavigate } from "react-router-dom";
+import Loader from "../com/Loader";
 const PgForm = () => {
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState({
@@ -12,7 +12,7 @@ const PgForm = () => {
     file: null,
   });
   const nav = useNavigate();
-  
+
   useEffect(() => {
     if (loader) {
       setTimeout(() => {
@@ -87,7 +87,7 @@ const PgForm = () => {
             <small className=" d-flex text-danger">{error.collegeName}</small>
           )}
         </div>
-        
+
         <div>
           <label className="d-flex">Course</label>
           <input
@@ -101,7 +101,7 @@ const PgForm = () => {
             <small className=" d-flex text-danger">{error.course}</small>
           )}
         </div>
-        
+
         <div>
           <label className="d-flex">Specialization</label>
           <input
@@ -115,7 +115,7 @@ const PgForm = () => {
             <small className="d-flex text-danger">{error.specialization}</small>
           )}
         </div>
-        
+
         <div>
           <label className="d-flex">Certificate upload</label>
           <input
@@ -125,11 +125,12 @@ const PgForm = () => {
             onChange={(e) => handleFileChange(e)}
           />
           <div>
-          {error.file && (
-            <small className=" d-flex text-danger">{error.file}</small>
-          )}</div>
+            {error.file && (
+              <small className=" d-flex text-danger">{error.file}</small>
+            )}
+          </div>
         </div>
-        
+
         <div className="d-flex justify-content-md-end justify-content-center mt-4">
           <div className="me-3 mb-2">
             <SkipButton onClick={handleButtonSkip}>Skip</SkipButton>
@@ -140,21 +141,19 @@ const PgForm = () => {
         </div>
         <div className="mt-5">
           <p className="d-flex">Note:</p>
-        <div className="d-flex">
-          <p>
-            Please enter a university name along with School name
-          </p>
-        </div>
-        <div className="d-flex">
-          <p>
-            Please upload a valid PDF file. Other file types will not be
-            accepted.
-          </p>
-        </div>
+          <div className="d-flex">
+            <p>Please enter a university name along with School name</p>
+          </div>
+          <div className="d-flex">
+            <p>
+              Please upload a valid PDF file. Other file types will not be
+              accepted.
+            </p>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default PgForm
+export default PgForm;

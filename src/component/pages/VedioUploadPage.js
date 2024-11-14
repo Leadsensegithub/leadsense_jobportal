@@ -39,11 +39,7 @@ const VedioUploadPage = ({ onNext }) => {
       <div className="container d-flex mt-5">
         <input type="file" onChange={handleChange} />
       </div>
-      {error && (
-        <div className=" d-flex text-danger mt-2">
-          {error}
-        </div>
-      )}
+      {error && <div className=" d-flex text-danger mt-2">{error}</div>}
       <div className="d-flex justify-content-end mt-5">
         <Button onClick={handleButton}>Submit</Button>
       </div>
