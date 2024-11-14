@@ -2,6 +2,7 @@ import React from 'react'
 import "../css/Card.css"
 import DefaultLayout from '../com/DefaultLayout (1)'
 import { useNavigate } from 'react-router-dom'
+import Fotter from '../com/Fotter'
 
 function Card() {
   const nav = useNavigate()
@@ -10,8 +11,6 @@ function Card() {
   }
   return (
     <>
-    <DefaultLayout />
-    
    < div className="buy_cards" style={{display:"flex", justifyContent:"space-around", marginTop:"150px"}}>
         <div style={{width:"22%"}} className="buy_card">
             <p>Silver</p>
@@ -27,7 +26,7 @@ function Card() {
         </div>
     </div>
     
-    
+    <Fotter/>
     </>
    
   )

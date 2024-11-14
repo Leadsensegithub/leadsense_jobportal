@@ -3,6 +3,7 @@ import Select from "react-select";
 import Button from "../com/Button";
 import { useNavigate } from "react-router-dom";
 import Loader from "../com/Loader";
+import Fotter from "../com/Fotter";
 
 const WorkStatus = () => {
   const nav = useNavigate();
@@ -166,10 +167,11 @@ const WorkStatus = () => {
           </label>
         </div>
 
-        <div className="d-flex justify-content-md-end justify-content-center mt-4">
+        <div className="d-flex justify-content-md-end justify-content-center my-4">
           <Button onClick={handleButton}>Next</Button>
         </div>
       </div>
+      <Fotter/>
     </div>
   );
 };

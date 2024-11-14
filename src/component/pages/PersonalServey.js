@@ -3,6 +3,7 @@ import SkipButton from "../com/SkipButton";
 import Button from "../com/Button";
 import { useNavigate } from "react-router-dom";
 import Loader from "../com/Loader";
+import Fotter from "../com/Fotter";
 
 const PersonalSurvey = () => {
   const [loader, setLoader] = useState(false);
@@ -69,11 +70,12 @@ const PersonalSurvey = () => {
   };
 
   return (
+    <div>
     <div className="container">
       {loader && <Loader />}
       <div>
         <div>
-          <h3>Personal Survey</h3>
+          <h3 className="text-center my-5">Personal Survey</h3>
         </div>
         <div>
           <div className="d-flex">
@@ -221,6 +223,8 @@ const PersonalSurvey = () => {
           <Button onClick={handleButton}>Next</Button>
         </div>
       </div>
+      </div>
+      <Fotter/>
     </div>
   );
 };

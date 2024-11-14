@@ -3,6 +3,7 @@ import Select from "react-select";
 import { useNavigate } from "react-router-dom";
 import Loader from "../com/Loader";
 import '../css/form.css'
+import Fotter from "../com/Fotter";
 const StudentRegister = () => {
   const [loading, setLoading] = useState(false);
   const nav = useNavigate();
@@ -80,11 +81,12 @@ const StudentRegister = () => {
   }
 
   return (
-    <div className="container my-5">
+    <div>
+    <div className="container my-5 p-5">
       {loading ? <Loader /> : null}
-      <div className="card shadow p-5">
+      <div className="card shadow p-5 mt-5">
         <form onSubmit={handleSubmit}>
-          <h3 className="text-danger text-center mb-4">Student Registration</h3>
+          <h3 className="text-danger text-center mb-5">Student Registration</h3>
           
           <div className="row mb-3">
             <div className="col-12 col-md-6 mb-3 mb-md-0">
@@ -202,7 +204,10 @@ const StudentRegister = () => {
           </div>
         </form>
       </div>
+      </div>
+      <Fotter/>
     </div>
+
   );
 };
 

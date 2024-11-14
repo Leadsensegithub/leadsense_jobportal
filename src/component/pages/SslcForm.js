@@ -3,6 +3,7 @@ import Button from "../com/Button";
 import SkipButton from "../com/SkipButton";
 import { useNavigate } from "react-router-dom";
 import Loader from "../com/Loader";
+import Fotter from "../com/Fotter";
 const SslcForm = () => {
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState({
@@ -150,6 +151,7 @@ const SslcForm = () => {
           </div>
         </div>
       </div>
+      <Fotter/>
     </div>
   );
 };

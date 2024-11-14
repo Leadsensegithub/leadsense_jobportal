@@ -4,6 +4,9 @@ import GroupImg from './gropImg.jpg'
 import LaptopUse from './laptop.jpg'
 import passPort from './singlrImg.jpg'
 import RoundImg from './roundedImg.jpg'
+import ImgOne from './Img1.jpg'
+import Imgt from './Img2.jpg'
+import ImgTh from './Img3.jpg' 
 const Assets = {
     LSmediaLOGO: LSmediaLOGO,
     Top: Top,
@@ -11,5 +14,8 @@ const Assets = {
     LaptopUse:LaptopUse,
     passPort :passPort,
     RoundImg:RoundImg,
+    ImgOne:ImgOne,
+    Imgt:Imgt,
+    ImgTh,ImgTh
 }
 export default Assets

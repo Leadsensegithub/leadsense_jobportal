@@ -147,28 +147,7 @@
 }
 
 
-/* .head_card{
-    background-color: #547DBF;
-    margin-top: 300px;
-    width: 60%;
-    padding: 10px;
-    border-radius: 10px;
-    margin-left: 50px;
-    padding-left: 100px;
-    
-
-}
-
-.head_card p{
-    margin-left: 20px;
-}
-
-.trynow_btn{
-    margin-left: 100px;
-     margin-top: 20px;
-} */
-
-/* Full-width styling for head_card with reduced width */
+ 
 .head_card {
     background-color: #CDDEF8;
     width: 100%;  
@@ -180,7 +159,7 @@
     justify-content: space-between;
     align-items: center;
     margin: 0 auto ;
-    margin-top: 300px;
+    margin-top: 400px;
 }
 
  
@@ -223,71 +202,79 @@
     margin-bottom: 10px;
   }
   
-  .cards {
-    background-color: #f4f4f4;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Full width on smaller screens */
-    max-width: 300px; /* Maximum width for each card */
-    margin-bottom: 20px;
-  }
-  
-  .cards p {
-    margin: 10px 0;
-    font-size: 16px;
-  }
-  
-  @media (min-width: 576px) {
-    .cards {
-      width: 45%; /* 2 items per row on medium screens */
-    }
-  }
-  
-  @media (min-width: 992px) {
-    .cards {
-      width: 30%; /* 3 items per row on large screens */
-    }
-  }
-  
+ 
 
- .box_card {
-    background-color: hsl(164, 47%, 59%);
-    color: white;
-    display: flex;
-    margin-top: 40px;
-    padding: 10px 20px;
-    width: 100%;
-    height: auto; /* Adjusts height based on content */
-    box-sizing: border-box;
-    align-items: center;
+ .edu-img  {
+  width: 50px;
+ }
+
+ 
+
+ .vertical-card{
+  border: solid 5px #f5f5f5;
+  padding: 30px;
+
+   
+  
+ }
+ .vertical-card h1{
+  font-size: 16px;
+  margin-top: 10px;
+ 
+ }
+ 
+ .vertical-card:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+ 
+
+
+
+
+ 
+
+ 
+
+
+ .empty-box {
+  padding: 30px;
+  margin-top: 30px;
+  border-radius: 30px;
+  margin-left: 50px;
+  background-color:whitesmoke;
+  width: 93%;
+  display: flex;
+  
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px; /* Adds space between sections */
+  margin-top: 28px;
+  
+}
+
+.dm-img {
+  width: 40px;
+  margin-right: 8px; /* Minimal gap between image and text */
+  margin-bottom: 140px;
+}
+
+.section h1 {
+  font-size: 20px;
+  text-align: left;
+}
+
+.section p {
+  text-align: left;
 }
 
 
-
- .event_card{
-    padding: 30px 30px 30px 30px;
-    margin-bottom: 20px;
-    height: 200px;
-    width: 200px;
-    align-items: center;
-    
-  
- }
-
-
- .empty-box{
-    padding: 30px;
-    margin-top: 20px;
-    border-radius: 30px;
-    margin-left: 50px;
-    background-color: #D9D9D9;
-    margin-top: 30px;
-    font-size: 100px;
-    height: 300px;
-    width: 93%;
-
- }
 
 /* Base styles for the buy cards */
 .buy_card, .buy_card_gold {
@@ -307,6 +294,14 @@
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
 }
 
+.buy_card h1{
+  font-size: 25px;
+  color: rebeccapurple;
+}
+
+.buy_card span{
+  font-size: large;
+}
 /* Styling for the gold card */
 .buy_card_gold {
   background-color: #f5f5f5;
@@ -416,10 +411,7 @@ display: block;
 }
 
 
-/* .career_img{
-    width: 100%;
-} */
-/* Global Styles */
+ 
 * {
     margin: 0;
     padding: 0;
@@ -434,6 +426,7 @@ display: block;
     gap: 40px;
     padding: 20px;
     margin-top: 50px;
+    
   }
   
   .career {
@@ -444,6 +437,7 @@ display: block;
     max-width: 350px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
   }
   
   .career span {
@@ -590,8 +584,82 @@ display: block;
       width: 800px;
       
     }
+
+    .empty-box{
+      display: block;
     }
+
+    .section{
+      display: flex;
+    }
+    }
+
+
+    
+/* Flexbox for Desktop: side by side */
+.section {
+  display: flex; /* Side by side on larger screens */
+  justify-content: space-between;
+  align-items: center; /* Vertically center content */
+  margin-bottom: 30px; /* Add space between sections */
+}
+
+.dm-img {
+  width: 100%;
+  max-width: 300px; /* Limit image width for desktop */
+  height: auto;
+  margin-right: 20px;
+}
+
+/* Responsive Layout: Stack vertically */
+@media (max-width: 768px) {
+  .section {
+      flex-direction: column; /* Stack vertically on mobile */
+      text-align: center; /* Center text on mobile */
+  }
+
+  .dm-img {
+      margin-bottom: 20px; /* Add space between image and text */
+      max-width: 100%; /* Allow images to take full width */
+  }
+
+  .col-12 {
+      margin-bottom: 20px; /* Add spacing between sections */
+  }
+}
+/* Flexbox for Desktop: side by side */
+.section {
+    display: flex; /* Side by side on larger screens */
+    justify-content: space-between;
+    align-items: center; /* Vertically center content */
+    margin-bottom: 30px; /* Add space between sections */
+}
+
+.dm-img {
+    width: 100%;
+    max-width: 300px; /* Limit image width for desktop */
+    height: auto;
+    margin-right: 20px;
+}
+
+/* Responsive Layout: Stack vertically */
+@media (max-width: 768px) {
+    .section {
+        flex-direction: column; /* Stack vertically on mobile */
+        text-align: center; /* Center text on mobile */
+    }
+
+    .dm-img {
+        margin-bottom: 20px; /* Add space between image and text */
+        max-width: 100%; /* Allow images to take full width */
+    }
+
+    .col-12 {
+        margin-bottom: 20px; /* Add spacing between sections */
+    }
+}
 
  
 
 
+ 

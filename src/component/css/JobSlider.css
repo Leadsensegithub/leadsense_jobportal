@@ -1,0 +1,119 @@
+/* Slider container */
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 0;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    overflow: visible;
+    margin-top: 20px;
+}
+
+/* Card styles */
+.cards {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 0 10px;
+    flex: 1;
+}
+
+/* Slick arrows styling */
+.slick-prev,
+.slick-next {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    z-index: 999;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    content: "";
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 8px;
+}
+
+.slick-prev:before {
+    transform: rotate(135deg);
+}
+
+.slick-next:before {
+    transform: rotate(-45deg);
+}
+
+.slick-prev {
+    left: -60px;
+}
+
+.slick-next {
+    right: -60px;
+}
+
+.slick-prev:hover,
+.slick-next:hover,
+.slick-prev:focus,
+.slick-next:focus {
+    opacity: 1;
+    background-color: darkred;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .slick-prev,
+    .slick-next {
+        width: 40px;
+        height: 40px;
+    }
+    .slick-prev {
+        left: -45px;
+    }
+    .slick-next {
+        right: -45px;
+    }
+}
+
+@media (max-width: 768px) {
+    .slick-prev,
+    .slick-next {
+        width: 35px;
+        height: 35px;
+    }
+    .slick-prev {
+        left: -35px;
+    }
+    .slick-next {
+        right: -35px;
+    }
+    .cards {
+        margin: 0 5px;
+    }
+}
+
+@media (max-width: 576px) {
+    .cards {
+        padding: 15px;
+    }
+    .slick-prev,
+    .slick-next {
+        display: none;  /* Hide arrows on small screens */
+    }
+}

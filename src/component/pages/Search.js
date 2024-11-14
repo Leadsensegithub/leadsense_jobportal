@@ -5,10 +5,6 @@ import Assets from '../assets/Assets';
 function Search() {
   return (
     <>
-    <div className='ls_img '>
-                    <img style={{marginRight:"1200px"}} src={Assets.LSmediaLOGO}></img>
-                    <button className='btn btn-dark'>LogOut</button>
-                </div>
       <div className="input d-flex align-items-center mt-5" >
         <div className="search_info d-flex gap-2 w-100">
           <input placeholder="Enter skills / job title" />

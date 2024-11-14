@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import SkipButton from "../com/SkipButton";
 import Button from "../com/Button";
 import Loader from "../com/Loader";
+import Fotter from "../com/Fotter";
 
 const EmploymentSurvey = () => {
   const [loader, setLoader] = useState(false);
@@ -72,6 +73,7 @@ const EmploymentSurvey = () => {
   };
 
   return (
+    <div>
     <div className="container my-5">
       {loader && <Loader />}
       <h3 className="text-center mb-4">Employment Information</h3>
@@ -183,6 +185,8 @@ const EmploymentSurvey = () => {
           Next
         </Button>
       </div>
+      </div>
+      <Fotter/>
     </div>
   );
 };

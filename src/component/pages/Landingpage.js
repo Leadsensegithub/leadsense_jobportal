@@ -1,11 +1,11 @@
-/* eslint-disable jsx-a11y/heading-has-content */
 import React from 'react';
 import '../css/LandingPage.css'
 import Assets from '../assets/Assets';
 import { useNavigate } from 'react-router-dom';
-import DefaultLayout from '../com/DefaultLayout (1)';
-import SlideButtons from '../com/SlideButtons';
-// import DefaultLayout from '../defaultLayout/DefaultLayout';
+import SliderComponent from '../pages/SliderComponent';
+import JobSlider from '../com/JobSlider';
+import DefaultHeader from '../com/DefaultHeader';
+ 
  
 
 function LandingPage() {
@@ -15,17 +15,19 @@ function LandingPage() {
  const handlebtn =()=>{
     nav("/companyRegister")
  }
-const list = [["Java Developer","Technical Lead","Cyber Security"],["Full Stack Developer","Front End Developer","Business Analyst"]]
+
+ 
     return (
         <>
+        <DefaultHeader/>
             <div className='landingPage'>
-              <DefaultLayout />
                 <div className='imgs'>
                     <img src={Assets?.Top}></img>
                 </div>
                 <div className='row'>
                     <div className='col-lg-12'>
                         <div className='header'>
+                             
                         </div>
                     </div>
                     <div className='col-12'>
@@ -45,16 +47,17 @@ const list = [["Java Developer","Technical Lead","Cyber Security"],["Full Stack 
             </div>
  
       
-            <div className='col-12 text-center  h1-contant'>
-                <h1>Find skilled professionals to</h1>
-                <h1>boost your company’s</h1>
-                <h1>success!</h1>
-            </div>
+         
  
         </div>
     </div>
 </div>
 
+<div style={{marginTop:"170px"}} className=' text-center  h1-cont ant'>
+                <h1>Find skilled professionals to</h1>
+                <h1>boost your company’s success!</h1>
+          
+            </div>
     </div>
 </div>
 
@@ -85,76 +88,105 @@ const list = [["Java Developer","Technical Lead","Cyber Security"],["Full Stack 
   <h1>Internship</h1>
 </div>
 
-<div className='d-flex justify-content-around flex-wrap'>
-  <div className='cards'>
-    <p>Full stack Developer</p>
-    <p style={{ marginRight: "69px" }}>
-      <i style={{ marginRight: "8px" }} className="fa-solid fa-briefcase"></i>2 years.
-    </p>
-    <p style={{ marginRight: "30px" }}>
-      <i style={{ marginRight: "8px" }} className="fa-solid fa-location-dot"></i>Chennai,Delhi
-    </p>
+
+
+<div className=' justify-content-around flex-wrap'>
+
+  <div>
+    <JobSlider />
   </div>
 
-  <div className='cards'>
-    <p>Full stack Developer</p>
-    <p style={{ marginRight: "69px" }}>
-      <i style={{ marginRight: "8px" }} className="fa-solid fa-briefcase"></i>2 years.
-    </p>
-    <p style={{ marginRight: "30px" }}>
-      <i style={{ marginRight: "8px" }} className="fa-solid fa-location-dot"></i>Chennai,Delhi
-    </p>
-  </div>
+  
+</div>
 
-  <div className='cards'>
-    <p>Full stack Developer</p>
-    <p style={{ marginRight: "69px" }}>
-      <i style={{ marginRight: "8px" }} className="fa-solid fa-briefcase"></i>2 years.
-    </p>
-    <p style={{ marginRight: "30px" }}>
-      <i style={{ marginRight: "8px" }} className="fa-solid fa-location-dot"></i>Chennai,Delhi
-    </p>
+
+ 
+<div className="container-fluid mt-5 bg-light p-5 rounded">
+  <div className="row text-center">
+    <div className="col-6 col-md-2 mb-4">
+      <div className="vertical-card">
+        <img className="edu-img img-fluid" src={Assets.Edu} alt="Education" />
+        <h1 className="h5 mt-2">Education</h1>
+      </div>
+    </div>
+    <div className="col-6 col-md-2 mb-4">
+      <div className="vertical-card">
+        <img className="edu-img img-fluid" src={Assets.Heath} alt="Healthcare" />
+        <h1 className="h5 mt-2">Healthcare</h1>
+      </div>
+    </div>
+    <div className="col-6 col-md-2 mb-4">
+      <div className="vertical-card">
+        <img className="edu-img img-fluid" src={Assets.Reality} alt="Realty" />
+        <h1 className="h5 mt-2">Realty</h1>
+      </div>
+    </div>
+    <div className="col-6 col-md-2 mb-4">
+      <div className="vertical-card">
+        <img className="edu-img img-fluid" src={Assets.Gadgets} alt="Gadgets" />
+        <h1 className="h5 mt-2">Gadgets</h1>
+      </div>
+    </div>
+    <div className="col-6 col-md-2 mb-4">
+      <div className="vertical-card">
+        <img className="edu-img img-fluid" src={Assets.Sports} alt="Sports" />
+        <h1 className="h5 mt-2">Sports</h1>
+      </div>
+    </div>
+    <div className="col-6 col-md-2 mb-4">
+      <div className="vertical-card">
+        <img className="edu-img img-fluid" src={Assets.Hospitality} alt="Hospitality" />
+        <h1 className="h5 mt-2">Hospitality</h1>
+      </div>
+    </div>
   </div>
 </div>
 
 
 
-<div className="container-fluid box_card px-3 px-md-5 py-4">
-    <div className="text-center mb-4">
-        <h2 className="h4 mb-3">Upcoming Events <br /> and Challenges</h2>
+
+<div>
+ 
+<div>
+<SliderComponent />
+</div>
+   
     </div>
-    <div className="row justify-content-center">
-        <div className="col-12 col-sm-10 col-md-6 col-lg-4 mb-3">
-            <div className="bg-dark text-white p-4 rounded shadow-sm">
-                <h3 className="event_card h6"></h3>
-                <p className="mt-2"></p>
-            </div>
+
+    <div  style={{ backgroundColor: "whitesmoke", padding: "30px 40px", borderRadius: "20px", marginTop:"40px" }} className="container-fluid">
+  <div style={{ padding: "0 15px", marginLeft:"10px", marginBottom:"10px" }} className="row section">
+    <div className="col-12 col-md-4 mb-4">
+      <div className="dm-card d-flex align-items-center">
+        <div>
+          <h1>Digital Marketing</h1>
+          <p className="text-left">
+            We help businesses grow their online presence and reach their target audience through a variety of digital marketing channels, including search engine optimization (SEO), pay-per-click (PPC) advertising, social media marketing, and email marketing.
+          </p>
         </div>
-        <div className="col-12 col-sm-10 col-md-6 col-lg-4 mb-3">
-            <div className="bg-dark text-white p-4 rounded shadow-sm">
-                <h3 className="event_card h6"> </h3>
-                <p className="mt-2"></p>
-            </div>
+      </div>
+    </div>
+
+    <div className="col-12 col-md-4 mb-4">
+      <div className="dm-card d-flex align-items-center">
+        <div>
+          <h1>Grow your business</h1>
+          <p className="text-left">
+            We provide the strategies and tools you need to grow your business, from increasing brand awareness to generating leads and sales. We work with you to understand your goals and develop a customized marketing plan that will help you achieve them.
+          </p>
         </div>
-        {/* <!-- Add more events if needed --> */}
-    </div>
-</div>
-
-
-
-                  <div className='career-container'>
-  <div className='career'>
-    <span>Explore Business Listing</span> <span>Across Key Career Paths</span>
-    <img className='career_img' src={Assets.Career_img} alt="Career" />
-  </div>
-
-  <div className='career_btn'>
-    <div>
-    <div>
-      <SlideButtons list={list}/>
-  </div>
+      </div>
     </div>
 
+    <div className="col-12 col-md-4 mb-4">
+      <div className="dm-card d-flex align-items-center">
+        <div>
+          <h1>Branding</h1>
+          <p className="text-left">
+            We help businesses create a strong and memorable brand that will resonate with their target audience. We develop branding strategies that include logo design, website development, and social media marketing.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -162,19 +194,17 @@ const list = [["Java Developer","Technical Lead","Cyber Security"],["Full Stack 
 
 
 
-                  <div className='empty-box'>
-
-                  
-                  </div>
 
                      
 
                  
-                  <div className="container">
+      <div style={{marginTop:"30px"}} className="container">
   <div className="row justify-content-center">
     <div className="col-12 col-md-4 mb-4">
       <div className="buy_card">
         <p>Silver</p>
+          
+        
         <button>Buy now</button>
       </div>
     </div>

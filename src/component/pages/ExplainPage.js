@@ -3,6 +3,7 @@ import Button from "../com/Button";
 import SkipButton from "../com/SkipButton";
 import Loader from "../com/Loader";
 import { useNavigate } from "react-router-dom";
+import Fotter from "../com/Fotter";
 
 const ExplainPage = () => {
   const [loader, setLoader] = useState(false);
@@ -86,6 +87,7 @@ const ExplainPage = () => {
           </div>
         </div>
       </div>
+      <Fotter/>
     </div>
   );
 };

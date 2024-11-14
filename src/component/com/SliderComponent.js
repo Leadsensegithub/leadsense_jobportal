@@ -1,26 +1,33 @@
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import '../css/SliderComponent.css'; // Your custom styling
 
-import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import '../css/SliderComponent.css'
 const SliderComponent = ({ images }) => {
-  const settings = {              // Show navigation dots
-    infinite: true,           // Infinite scroll
-    speed: 500,               // Transition speed in ms
-    slidesToShow: 1,          // Show one slide at a time
-    slidesToScroll: 1,        // Scroll one slide at a time
-    autoplay: true,           // Enable autoplay
-    autoplaySpeed: 3000,      // Autoplay speed in ms
-    arrows: true,             // Show navigation arrows
+  const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+    dots: false,
+    fade: true, // For smooth transitions between slides
+    cssEase: "ease-in-out", // Smooth transition effect
   };
 
   return (
-    <div className="slider-container">
+    <div className="slider-wrapper">
       <Slider {...settings}>
         {images.map((image, index) => (
           <div key={index}>
-            <img src={image} alt={`Slide ${index}`} className="slider-image" />
+            <img
+              src={image}
+              alt={`Slide ${index}`}
+              className="slider-image"
+            />
           </div>
         ))}
       </Slider>
