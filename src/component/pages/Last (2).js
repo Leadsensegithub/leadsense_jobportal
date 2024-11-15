@@ -1,9 +1,11 @@
 import React from "react";
 import Fotter from "../com/Fotter";
+import PageHeader from "../com/PageHeader";
 
 function Last() {
   return (
     <>
+    <PageHeader/>
       <div className="container">
         {/* Name and details section */}
         <div className="d-flex flex-column flex-md-row my-5">
@@ -61,7 +63,6 @@ function Last() {
           </div>
         </div>
       </div>
-      <Fotter />
     </>
   );
 }

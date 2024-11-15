@@ -7,6 +7,8 @@ import RoundImg from './roundedImg.jpg'
 import ImgOne from './Img1.jpg'
 import Imgt from './Img2.jpg'
 import ImgTh from './Img3.jpg' 
+import ls from './image.png'
+import Design from './Design.jpg'
 const Assets = {
     LSmediaLOGO: LSmediaLOGO,
     Top: Top,
@@ -16,6 +18,8 @@ const Assets = {
     RoundImg:RoundImg,
     ImgOne:ImgOne,
     Imgt:Imgt,
-    ImgTh,ImgTh
+    ImgTh:ImgTh,
+    ls:ls,
+    Design:Design,
 }
 export default Assets

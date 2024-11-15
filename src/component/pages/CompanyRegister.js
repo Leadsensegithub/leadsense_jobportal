@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Loader from "../com/Loader";
 import DefaultLayout from '../com/DefaultLayout (1)';
 import Fotter from "../com/Fotter";
+import PageHeader from "../com/PageHeader";
 
 const CompanyRegister = () =>{
 const [loading, setLoading] = useState(false);
@@ -84,6 +85,7 @@ function handleSubmit(e) {
 
 return (
   <div>
+    <PageHeader/>
   <div className="container my-5 p-5">
     {loading ? <Loader /> : null}
     <div className="card shadow p-5 mt-5">
@@ -207,7 +209,6 @@ return (
       </form>
     </div>
     </div>
-    <Fotter/>
   </div>
 
 );

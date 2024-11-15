@@ -113,7 +113,6 @@
         padding: 15px;
     }
     .slick-prev,
-    .slick-next {
-        display: none;  /* Hide arrows on small screens */
+    .slick-next { /* Hide arrows on small screens */
     }
 }

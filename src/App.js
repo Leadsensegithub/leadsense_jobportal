@@ -21,6 +21,7 @@ import CompanyOtp from './component/pages/CompanyOtp';
 import Card from './component/pages/Card';
 import Search from './component/pages/Search';
 import DefaultCard from './component/com/DefaultCard';
+import Login from './component/pages/Login';
 
 function App() {
   const location = useLocation();
@@ -59,6 +60,7 @@ function App() {
       )}
 
       <Routes>
+      <Route path="/login" element={<Login/>} />
       <Route path="/defaultcard" element={<DefaultCard/>} />
       <Route path="/companyRegister" element={<CompanyRegister/>} />
       <Route path="/card" element={<Card/>} />

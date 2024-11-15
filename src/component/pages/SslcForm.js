@@ -4,6 +4,7 @@ import SkipButton from "../com/SkipButton";
 import { useNavigate } from "react-router-dom";
 import Loader from "../com/Loader";
 import Fotter from "../com/Fotter";
+import PageHeader from "../com/PageHeader";
 const SslcForm = () => {
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState({
@@ -73,6 +74,7 @@ const SslcForm = () => {
 
   return (
     <div>
+      <PageHeader/>
       <div className="container">
         {loader && <Loader />}
         <div>
@@ -151,7 +153,7 @@ const SslcForm = () => {
           </div>
         </div>
       </div>
-      <Fotter/>
+
     </div>
   );
 };

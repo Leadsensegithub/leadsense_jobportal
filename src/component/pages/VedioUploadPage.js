@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "../com/Button";
 import { useNavigate } from "react-router-dom";
 import Fotter from "../com/Fotter";
+import PageHeader from "../com/PageHeader";
 
 const VedioUploadPage = ({ onNext }) => {
   const nav = useNavigate();
@@ -30,6 +31,7 @@ const VedioUploadPage = ({ onNext }) => {
 
   return (
     <div>
+      <PageHeader/>
     <div className="container">
       <div className="container d-flex mt-5">
         <div className="d-flex flex-column mt-5">
@@ -46,7 +48,6 @@ const VedioUploadPage = ({ onNext }) => {
         <Button onClick={handleButton}>Submit</Button>
       </div>
       </div>
-      <Fotter/>
     </div>
   );
 };

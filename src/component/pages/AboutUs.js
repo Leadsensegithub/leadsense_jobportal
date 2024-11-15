@@ -5,12 +5,14 @@ import Assets from "../assets/Assets";
 import Fotter from "../com/Fotter";
 import Timeline from "../com/TimeLine";
 import SliderComponent from "../com/SliderComponent";
+import SliderTiedUpCompany from "../com/SliderTiedUpCompany";
 
 const images = [Assets.ImgOne, Assets.ImgTh, Assets.Imgt];
 
 function AboutUs() {
   const [para, setPara] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [colour, setColour] = useState("");
   const [reviews, setReviews] = useState([
     {
       imgSrc: Assets.RoundImg,
@@ -50,11 +52,13 @@ function AboutUs() {
   function handleclick() {
     setPara(!para);
   }
-
+  function changeHoverColour() {
+    setColour("colourBlue");
+  }
   return (
     <div>
-      <div className="m-5">
-      <SliderComponent images={images}/>
+      <div className="marginSlider">
+        <SliderComponent images={images} />
       </div>
       {showModal && (
         <div
@@ -112,21 +116,19 @@ function AboutUs() {
           </div>
         </div>
       )}
-      <div className=" container-fluid img-Conatiner">
-      </div>
+      <div className=" container-fluid img-Conatiner"></div>
       <section className="stats-section text-center my-5">
         <div>
           <div className="row px-5">
-            
-            <div className="col-md-4 d-flex flex-column align-items-center mt-5">
+            <div className="col-md-4 d-flex flex-column mb-5 py-5">
               <div>
-                <h1 className="text-start text-danger">Meet </h1>
-                <h1 className="text-start text-danger">LeadSense</h1>
+                <h1 className="text-start text-danger">Meet LeadSense </h1>
+                {/* <h1 className="text-start text-danger"></h1> */}
               </div>
               <div className="text-start text-secondary">
-                <h1>digital.</h1>
-                <h1>innovative. </h1>
-                <h1>creative.</h1>
+                <h1>digital.innovative.creative.</h1>
+                {/* <h1> </h1>
+                <h1></h1> */}
               </div>
               {/* <p className="">
                 At LeadSense we specialize in branding, creating campaigns in
@@ -138,20 +140,17 @@ function AboutUs() {
               </p>
               <button className="btn btn-primary">Read More</button> */}
             </div>
-            <div className="col-md-4 d-flex flex-column align-items-center">
-  <div className="stat-card">
-    <div className="stat-card-body text-center">
-      <h1 className="stat-number">20.5k</h1>
-      <p className="stat-text">Successfully Trained</p>
-      <h1 className="stat-number">450+</h1>
-      <p className="stat-text">Students Community</p>
-      <h1 className="stat-number">20.5k</h1>
-      <p className="stat-text">Successfully Trained</p>
-    </div>
-  </div>
-</div>
+            <div className="col-md-4 d-flex flex-column align-items-center mb-5">
+              <div className="stat-card">
+                <div className="stat-card-body text-center">
+                  <h1 className="stat-number">20.5k</h1>
+                  <p className="stat-text">Successfully Trained</p>
+                  <h1 className="stat-number">450+</h1>
+                  <p className="stat-text">Students Community</p>
+                </div>
+              </div>
+            </div>
 
- 
             {/* <div className="col-md-4 d-flex flex-column align-items-center">
               <img
                 src={Assets.LaptopUse}
@@ -159,7 +158,7 @@ function AboutUs() {
                 className="img-fluid"
               />
             </div> */}
-            <div className="col-md-4 d-flex flex-column align-items-center py-5 mt-5">
+            <div className="col-md-4 d-flex flex-column align-items-center  ">
               <h1>Creative agency and their best solutions</h1>
               <p>Ultrices gravida dictum fusce ut placerat orci nulla</p>
               <button className="btn btn-primary">Read More</button>
@@ -170,7 +169,7 @@ function AboutUs() {
 
       <section className="hero-section text-black py-5 ">
         <div className="container">
-          <div className="row justify-content-center">
+          <div className="row justify-content-center p-5">
             <div className="col-md-4 col-12 d-flex flex-column align-items-center custom-gap mb-4">
               <h1 className="text-start">
                 Create an Effective Web Interior Design
@@ -187,14 +186,25 @@ function AboutUs() {
               <img src={Assets.LaptopUse} className="imgLap"></img>
             </div> */}
             <div className="col-md-4 col-12 d-flex flex-column align-items-center">
-              <div className="d-flex justify-content-between align-items-center w-100 mb-3">
-                <p className="mb-0">These Causes are perfectly simple.</p>
+              <div
+                className={`d-flex justify-content-between align-items-center w-100 mb-3 colourBlue ${
+                  para && "onClickColour"
+                }`}
+              >
+                <p className={`mb-0 ${colour}`}>
+                  These Causes are perfectly simple.
+                </p>
                 <span
                   onClick={handleclick}
                   style={{ cursor: "pointer" }}
                   className="ml-3"
                 >
-                  <i className="fa-solid fa-arrow-right"></i>
+                  <i
+                    className="fa-solid fa-arrow-right"
+                    onMouseOverCapture={changeHoverColour}
+                  >
+                    {" "}
+                  </i>
                 </span>
               </div>
               {para && (
@@ -209,8 +219,7 @@ function AboutUs() {
                 </div>
               )}
               <hr className="w-100" />
-
-              <div className="d-flex justify-content-between align-items-center w-100 mb-3">
+              <div className="d-flex justify-content-between align-items-center w-100 mb-3 colourBlue">
                 <p className="mb-0">These Causes are perfectly simple.</p>
                 <span
                   onClick={handleclick}
@@ -222,7 +231,7 @@ function AboutUs() {
               </div>
               <hr className="w-100" />
 
-              <div className="d-flex justify-content-between align-items-center w-100 mb-3">
+              <div className="d-flex justify-content-between align-items-center w-100 mb-3 colourBlue">
                 <p className="mb-0">These Causes are perfectly simple.</p>
                 <span
                   onClick={handleclick}
@@ -234,7 +243,7 @@ function AboutUs() {
               </div>
               <hr className="w-100" />
 
-              <div className="d-flex justify-content-between align-items-center w-100 mb-3">
+              <div className="d-flex justify-content-between align-items-center w-100 mb-3 colourBlue">
                 <p className="mb-0">These Causes are perfectly simple.</p>
                 <span
                   onClick={handleclick}
@@ -250,6 +259,10 @@ function AboutUs() {
       </section>
       <div className="mt-5">
         <Timeline />
+        <div className="w-75 mx-auto">
+          <h1 className="">Our Knowledge Partners</h1>
+          <SliderTiedUpCompany />
+        </div>
       </div>
       <section className="team-section my-5">
         <div className="container">

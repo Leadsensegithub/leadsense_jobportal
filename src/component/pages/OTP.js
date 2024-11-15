@@ -3,6 +3,7 @@ import "../css/OTP.css";
 import { useNavigate } from "react-router-dom";
 import Button from "../com/Button";
 import Fotter from "../com/Fotter";
+import PageHeader from "../com/PageHeader";
 
 function OTP({ onNext }) {
   const nav = useNavigate();
@@ -43,6 +44,7 @@ function OTP({ onNext }) {
   };
   return (
     <div>
+      <PageHeader/>
       <div className="Box-border">
         <p className="text-center mt-5 text-danger">
           An OTP has been sent to your registered email address. Please check
@@ -70,7 +72,7 @@ function OTP({ onNext }) {
           <Button onClick={handleButton}>Next</Button>
         </div>
       </div>
-      <Fotter/>
+
     </div>
   );
 }

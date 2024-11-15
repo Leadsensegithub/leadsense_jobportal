@@ -4,6 +4,7 @@ import SkipButton from "../com/SkipButton";
 import Loader from "../com/Loader";
 import { useNavigate } from "react-router-dom";
 import Fotter from "../com/Fotter";
+import PageHeader from "../com/PageHeader";
 
 const ExplainPage = () => {
   const [loader, setLoader] = useState(false);
@@ -52,6 +53,7 @@ const ExplainPage = () => {
 
   return (
     <div>
+      <PageHeader/>
       {loader && <Loader />}
       <div className="container">
         <div className="container d-flex justify-content-start">
@@ -87,7 +89,6 @@ const ExplainPage = () => {
           </div>
         </div>
       </div>
-      <Fotter/>
     </div>
   );
 };

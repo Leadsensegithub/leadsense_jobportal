@@ -4,6 +4,7 @@ import Button from "../com/Button";
 import { useNavigate } from "react-router-dom";
 import Loader from "../com/Loader";
 import Fotter from "../com/Fotter";
+import PageHeader from "../com/PageHeader";
 
 const WorkStatus = () => {
   const nav = useNavigate();
@@ -109,6 +110,7 @@ const WorkStatus = () => {
 
   return (
     <div>
+      <PageHeader/>
       {loading ? <Loader /> : <></>}
       <div className="container mt-4">
         <div className="d-flex justify-content-start my-3 mb-0">
@@ -171,7 +173,6 @@ const WorkStatus = () => {
           <Button onClick={handleButton}>Next</Button>
         </div>
       </div>
-      <Fotter/>
     </div>
   );
 };

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Loader from "../com/Loader";
 import '../css/form.css'
 import Fotter from "../com/Fotter";
+import PageHeader from "../com/PageHeader";
 const StudentRegister = () => {
   const [loading, setLoading] = useState(false);
   const nav = useNavigate();
@@ -82,7 +83,9 @@ const StudentRegister = () => {
 
   return (
     <div>
-    <div className="container my-5 p-5">
+      
+    <div className="container mb-5 p-5">
+    <PageHeader/>
       {loading ? <Loader /> : null}
       <div className="card shadow p-5 mt-5">
         <form onSubmit={handleSubmit}>
@@ -205,7 +208,6 @@ const StudentRegister = () => {
         </form>
       </div>
       </div>
-      <Fotter/>
     </div>
 
   );

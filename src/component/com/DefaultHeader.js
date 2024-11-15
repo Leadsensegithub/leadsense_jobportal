@@ -7,6 +7,9 @@ const DefaultHeader = () => {
   function handleButton(){
     nav("/register")
   }
+  function handleButtonLogin(){
+    nav("/login")
+  }
   return (
     <header className="landingPage">
       <div className="row">
@@ -17,7 +20,7 @@ const DefaultHeader = () => {
                 <img src={Assets?.LSmediaLOGO} alt="LS Media Logo" />
               </div>
               <div className="buttons-info">
-                <button className="btn login">Login</button>
+                <button className="btn login" onClick={handleButtonLogin}>Login</button>
                 <button className="btn register " onClick={handleButton}>Register</button>
                 <button className="btn c_register">Company Register</button>
               </div>

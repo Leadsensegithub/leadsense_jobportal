@@ -4,6 +4,7 @@ import Button from "../com/Button";
 import { useNavigate } from "react-router-dom";
 import Loader from "../com/Loader";
 import Fotter from "../com/Fotter";
+import PageHeader from "../com/PageHeader";
 
 const PersonalSurvey = () => {
   const [loader, setLoader] = useState(false);
@@ -71,6 +72,7 @@ const PersonalSurvey = () => {
 
   return (
     <div>
+      <PageHeader/>
     <div className="container">
       {loader && <Loader />}
       <div>
@@ -224,7 +226,6 @@ const PersonalSurvey = () => {
         </div>
       </div>
       </div>
-      <Fotter/>
     </div>
   );
 };
