@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Button from "../com/Button";
 import { useNavigate } from "react-router-dom";
-import Fotter from "../com/Fotter";
+ 
 import PageHeader from "../com/PageHeader";
 
 const VedioUploadPage = ({ onNext }) => {

@@ -2,7 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import '../css/SliderComponent.css'; // Your custom styling
+import "../css/SliderComponent.css"
 
 const SliderComponent = ({ images }) => {
   const settings = {
@@ -19,14 +19,14 @@ const SliderComponent = ({ images }) => {
   };
 
   return (
-    <div className="slider-wrapper">
+    <div className="auto-slider-wrapper">
       <Slider {...settings}>
         {images.map((image, index) => (
           <div key={index}>
             <img
               src={image}
               alt={`Slide ${index}`}
-              className="slider-image"
+              className="auto-slider-image"
             />
           </div>
         ))}

@@ -1,0 +1,88 @@
+/* Base styles for the buy cards */
+.buy_card, .buy_card_gold {
+  border: solid 1px grey;
+  padding: 40px;
+  height: auto;
+  margin-top: 50px; /* Added space to move the cards down */
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  border-radius: 30px;
+  text-align: center;
+  transition: margin-top 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for desktop */
+.buy_card:hover, .buy_card_gold:hover {
+  margin-top: -10px; /* Hover effect only applies to the hovered card */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+
+.buy_card h1{
+  font-size: 25px;
+  color: rebeccapurple;
+}
+
+.buy_card span{
+  font-size: large;
+}
+/* Styling for the gold card */
+.buy_card_gold {
+  background-color: #f5f5f5;
+}
+
+/* Button styling */
+.buy_card button {
+  margin-top: 20px;
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.buy_card button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+
+.buy_card {
+  padding: 20px;
+  width: 100%;
+}
+/* Typography */
+.buy_card p {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .buy_card, .buy_card_gold {
+    padding: 30px;
+    width: 100%;
+  }
+
+  .head_card{
+    margin-left: 8px;
+  }
+ .box_card{
+  
+  margin-left: 25px;
+  padding: 40px;
+  padding-left: 5px;
+ }
+  .imgs{
+    width: 400px;
+    margin-top: 20px;
+  }
+
+  .empty-box{
+    margin-left: 20px;
+  }
+
+  .buy_card:hover, .buy_card_gold:hover {
+    margin-top: 0; /* Disable hover effect on mobile */
+    box-shadow: none; /* Remove hover shadow effect on mobile */
+  }
+}

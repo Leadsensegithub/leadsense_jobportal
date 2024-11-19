@@ -14,7 +14,7 @@ const nav = useNavigate();
 useEffect(() => {
   if (loading) {
     setTimeout(() => {
-      nav("/otp");
+      nav("/companyotp");
     }, 3000);
   }
 }, [loading, nav]);
@@ -26,21 +26,23 @@ const options = [
 ];
 
 const [data, setData] = useState({
+  companyName:"",
   name: "",
-  email: "",
   number: "",
-  password: "",
   flavor: null,
-  flavorTwo: null,
+  email: "",
+  password: "",
+ 
 });
 
 const [errors, setErrors] = useState({
+  companyNameError: false,
   nameError: false,
-  emailError: false,
   numberError: false,
   passwordError: false,
   flavorError: false,
-  flavorTwoError: false,
+  emailError: false,
+  
 });
 
 function handleChange(e) {
@@ -48,10 +50,13 @@ function handleChange(e) {
   setData((prevState) => ({
     ...prevState,
     [name]: value,
+    
   }));
 
+  console.log(data)
   setErrors((prevData) => ({
     ...prevData,
+    companyNameError: name === "companyName" && (!value || value[0] !== value[0].toUpperCase()),
     nameError: name === "name" && (!value || value[0] !== value[0].toUpperCase()),
     emailError: name === "email" && !value.includes("@"),
     numberError: name === "number" && value.length !== 10,
@@ -69,12 +74,13 @@ function handleSelectChange(name, selectedOption) {
 function handleSubmit(e) {
   e.preventDefault();
   const updatedErrors = {
+    companyNameError: !data.companyName || data.companyName[0] !== data.companyName[0].toUpperCase(),
     nameError: !data.name || data.name[0] !== data.name[0].toUpperCase(),
     emailError: !data.email.includes("@"),
     numberError: data.number.length !== 10,
     passwordError: data.password.length < 8,
     flavorError: !data.flavor,
-    flavorTwoError: !data.flavorTwo,
+   
   };
   setErrors(updatedErrors);
   const isFormValid = Object.values(updatedErrors).every((error) => !error);
@@ -90,33 +96,33 @@ return (
     {loading ? <Loader /> : null}
     <div className="card shadow p-5 mt-5">
       <form onSubmit={handleSubmit}>
-        <h3 className="text-danger text-center mb-5">Student Registration</h3>
+        <h3 className="text-danger text-center mb-5">Company Registration</h3>
         
         <div className="row mb-3">
           <div className="col-12 col-md-6 mb-3 mb-md-0">
+            <input
+              name="companyName"
+              placeholder="Company Name"
+              type="text"
+              className="form-control"
+              // value={data.name}
+              onChange={handleChange}
+            />
+            {errors.companyNameError && (
+              <small className="text-danger d-flex mt-2">Please enter a valid Company name</small>
+            )}
+          </div>
+          <div className="col-12 col-md-6">
             <input
               name="name"
               placeholder="Name"
               type="text"
               className="form-control"
-              value={data.name}
+              // value={data.email}
               onChange={handleChange}
             />
             {errors.nameError && (
               <small className="text-danger d-flex mt-2">Please enter a valid name</small>
-            )}
-          </div>
-          <div className="col-12 col-md-6">
-            <input
-              name="email"
-              placeholder="Email"
-              type="email"
-              className="form-control"
-              value={data.email}
-              onChange={handleChange}
-            />
-            {errors.emailError && (
-              <small className="text-danger d-flex mt-2">Please enter a valid email</small>
             )}
           </div>
         </div>
@@ -128,7 +134,7 @@ return (
               placeholder="Number"
               type="text"
               className="form-control"
-              value={data.number}
+              // value={data.number}
               onChange={handleChange}
             />
             {errors.numberError && (
@@ -161,42 +167,32 @@ return (
           </div>
         </div>
 
+        
         <div className="row mb-3">
+          <div className="col-12 col-md-6 mb-3 mb-md-0">
+            <input
+              name="email"
+              placeholder="email"
+              type="email"
+              className="form-control"
+              // value={data.password}
+              onChange={handleChange}
+            />
+            {errors.emailError && (
+              <small className="text-danger d-flex mt-2">Please enter valid email</small>
+            )}
+          </div>
           <div className="col-12 col-md-6 mb-3 mb-md-0">
             <input
               name="password"
               placeholder="Password"
               type="password"
               className="form-control"
-              value={data.password}
+              // value={data.password}
               onChange={handleChange}
             />
             {errors.passwordError && (
               <small className="text-danger d-flex mt-2">Password must be at least 8 characters</small>
-            )}
-          </div>
-          <div className="col-12 col-md-6">
-          <Select
-    options={options}
-    value={data.flavorTwo}
-    onChange={(selectedOption) =>
-      handleSelectChange("flavorTwo", selectedOption)
-    }
-    placeholder="Select Another Flavor"
-    className="w-100"
-    styles={{
-      control: (base) => ({
-        ...base,
-        textAlign: "left",
-      }),
-      placeholder: (base) => ({
-        ...base,
-        textAlign: "left",
-      }),
-    }}
-  />
-            {errors.flavorTwoError && (
-              <small className="text-danger d-flex mt-2">Please select a valid option</small>
             )}
           </div>
         </div>

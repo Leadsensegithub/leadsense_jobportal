@@ -3,7 +3,6 @@ import Button from "../com/Button";
 import SkipButton from "../com/SkipButton";
 import Loader from "../com/Loader";
 import { useNavigate } from "react-router-dom";
-import Fotter from "../com/Fotter";
 import PageHeader from "../com/PageHeader";
 
 const ExplainPage = () => {
@@ -11,7 +10,10 @@ const ExplainPage = () => {
   const [explanation, setExplanation] = useState("");
   const [error, setError] = useState("");
   const nav = useNavigate();
-
+  const isLargeScreen = window.innerWidth > 768;
+  const style = {
+    marginLeft: isLargeScreen? "510px":"0px"
+  };
   useEffect(() => {
     if (loader) {
       setTimeout(() => {
@@ -70,15 +72,16 @@ const ExplainPage = () => {
           {error && (
             <small className="d-flex text-danger d-block mt-2">{error}</small>
           )}
-        </div>
-
-        <div>
-          <small
-            className="text-end mt-1 d-flex justify-content-end"
-            style={{ marginLeft: "510px" }}
+                    <small
+            className="text-md-end mt-1 d-flex justify-content-end"
+            style={style}
           >
             {countWords(explanation)}/50 words
           </small>
+        </div>
+
+        <div>
+
         </div>
         <div className="d-flex justify-content-center justify-content-md-end mt-4">
           <div className="me-3 mb-2">

@@ -1,35 +1,61 @@
-import React from 'react';
-import '../css/LandingPage.css'
-import Assets from '../assets/Assets';
-import { useNavigate } from 'react-router-dom';
-const DefaultHeader = () => {
-  const nav = useNavigate()
-  function handleButton(){
-    nav("/register")
-  }
-  function handleButtonLogin(){
-    nav("/login")
-  }
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "../css/LandingPage.css"; // Assuming your CSS file is in this path
+import { FaBars, FaTimes } from "react-icons/fa"; // Importing the hamburger and close icons
+import Assets from "../assets/Assets";
+
+function DefaultHeader() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+    if (!menuOpen) {
+      document.body.style.overflow = "hidden"; // Disable scroll when the menu is open
+    } else {
+      document.body.style.overflow = "auto"; // Re-enable scroll when the menu is closed
+    }
+  };
+
   return (
-    <header className="landingPage">
-      <div className="row">
-        <div className="col-lg-12">
-          <div className="header">
-            <div className="header-body">
-              <div>
-                <img src={Assets?.LSmediaLOGO} alt="LS Media Logo" />
-              </div>
-              <div className="buttons-info">
-                <button className="btn login" onClick={handleButtonLogin}>Login</button>
-                <button className="btn register " onClick={handleButton}>Register</button>
-                <button className="btn c_register">Company Register</button>
-              </div>
-            </div>
-          </div>
+    <div className="navbar-container">
+      <div className="navbar">
+        <div className="logo">
+          <img
+            src={Assets.LSmediaLOGO} // Replace with your logo path
+            alt="Logo"
+            className="navbar-logo"
+          />
+        </div>
+
+        {/* Mobile Hamburger Icon */}
+        <div className="navbar-toggle" onClick={toggleMenu}>
+          {menuOpen ? <FaTimes size={30} /> : <FaBars size={30} />} {/* Adjusting icon size */}
+        </div>
+
+        {/* Navbar Links */}
+        <div className={`navbar-links ${menuOpen ? "active" : ""}`}>
+          <ul>
+            <li>
+              <button className="login-btn" onClick={() => navigate("/login")}>
+                Login
+              </button>
+            </li>
+            <li>
+              <button className="btn btn btn-danger " onClick={() => navigate("/register")}>
+                Register
+              </button>
+            </li>
+            <li>
+              <button className="btn btn btn-danger" onClick={() => navigate("/companyRegister")}>
+                Company Register
+              </button>
+            </li>
+          </ul>
         </div>
       </div>
-    </header>
+    </div>
   );
-};
+}
 
 export default DefaultHeader;

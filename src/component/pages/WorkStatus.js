@@ -3,8 +3,8 @@ import Select from "react-select";
 import Button from "../com/Button";
 import { useNavigate } from "react-router-dom";
 import Loader from "../com/Loader";
-import Fotter from "../com/Fotter";
 import PageHeader from "../com/PageHeader";
+import makeAnimated from "react-select/animated";
 
 const WorkStatus = () => {
   const nav = useNavigate();
@@ -19,14 +19,15 @@ const WorkStatus = () => {
     WorkStatusError: null,
     cityError: null,
   });
-
+  const animatedComponents = makeAnimated();
   useEffect(() => {
     if (loading) {
       setTimeout(() => {
         nav("/pgdetails");
       }, 3000);
     }
-  }, [loading, nav]);
+    console.log(formData)
+  },[formData,loading,nav]);
 
   const handleButton = () => {
     setError({ WorkStatusError: null, cityError: null });
@@ -50,7 +51,6 @@ const WorkStatus = () => {
     if (isValid) {
       setLoading(true);
     }
-    
   };
 
   const options = [
@@ -110,7 +110,7 @@ const WorkStatus = () => {
 
   return (
     <div>
-      <PageHeader/>
+      <PageHeader />
       {loading ? <Loader /> : <></>}
       <div className="container mt-4">
         <div className="d-flex justify-content-start my-3 mb-0">
@@ -142,11 +142,27 @@ const WorkStatus = () => {
             <p className="me-3">Suggestions:</p>
           </div>
           <div className="d-flex align-items-start">
-            <Select
+            {/* <Select
               options={options}
               onChange={(selectedOption) =>
                 handleChangeDropDown("city", selectedOption)
               }
+              
+            /> */}
+            <Select
+              closeMenuOnSelect={true}
+              components={animatedComponents}
+              isMulti
+              options={options}
+              isClearable={false}
+              onChange={(selectedOption) => {
+                // Limit selection to only one option
+                const singleOption = selectedOption
+                  ? [selectedOption[selectedOption.length - 1]]
+                  : [];
+                handleChangeDropDown("city", singleOption);
+                
+              }}
               className="w-100 w-md-50"
             />
           </div>
@@ -178,3 +194,4 @@ const WorkStatus = () => {
 };
 
 export default WorkStatus;
+

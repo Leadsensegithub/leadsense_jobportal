@@ -119,8 +119,8 @@ function AboutUs() {
       <div className=" container-fluid img-Conatiner"></div>
       <section className="stats-section text-center my-5">
         <div>
-          <div className="row px-5">
-            <div className="col-md-4 d-flex flex-column mb-5 py-5">
+          <div className="row px-md-5 px-4">
+            <div className="col-md-4 d-flex flex-column mb-md-5 py-5 mr-md-0 mt-md-4">
               <div>
                 <h1 className="text-start text-danger">Meet LeadSense </h1>
                 {/* <h1 className="text-start text-danger"></h1> */}
@@ -140,7 +140,7 @@ function AboutUs() {
               </p>
               <button className="btn btn-primary">Read More</button> */}
             </div>
-            <div className="col-md-4 d-flex flex-column align-items-center mb-5">
+            <div className="col-md-4 d-flex flex-column align-items-center mb-5 ">
               <div className="stat-card">
                 <div className="stat-card-body text-center">
                   <h1 className="stat-number">20.5k</h1>
@@ -158,7 +158,7 @@ function AboutUs() {
                 className="img-fluid"
               />
             </div> */}
-            <div className="col-md-4 d-flex flex-column align-items-center  ">
+            <div className="col-md-4 d-flex flex-column align-items-center  p-md-5">
               <h1>Creative agency and their best solutions</h1>
               <p>Ultrices gravida dictum fusce ut placerat orci nulla</p>
               <button className="btn btn-primary">Read More</button>
@@ -171,10 +171,10 @@ function AboutUs() {
         <div className="container">
           <div className="row justify-content-center p-5">
             <div className="col-md-4 col-12 d-flex flex-column align-items-center custom-gap mb-4">
-              <h1 className="text-start">
+              <h1 className="textCenter">
                 Create an Effective Web Interior Design
               </h1>
-              <p className="text-start">
+              <p className="textCenter">
                 You can accept or decline this invitation. You can also head
                 over to https://github.com/Leadsensegithub/hanish to check out
                 the repository or visit @Leadsensegithub to learn a bit more
@@ -271,7 +271,7 @@ function AboutUs() {
           </h1>
           <div className="row justify-content-evenly">
             {reviews.map((rev, index) => (
-              <div key={index} className="col-md-3 col-sm-6 mb-5 card1">
+              <div key={index} className="col-md-3 col-sm-6 mb-5 card1 mx-3">
                 <div style={{ display: "flex", alignItems: "center" }}>
                   <img
                     src={rev.imgSrc}
