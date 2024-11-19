@@ -22,6 +22,8 @@ import Card from './component/pages/Card';
 import Search from './component/pages/Search';
 import DefaultCard from './component/com/DefaultCard';
 import Login from './component/pages/Login';
+import CareerPreference from './component/com/LastPageComponets/CareerPreference';
+import Profile from './component/pages/Profile';
 
 function App() {
   const location = useLocation();
@@ -60,6 +62,7 @@ function App() {
       )}
 
       <Routes>
+      <Route path="/profile" element={<Profile/>} />
       <Route path="/login" element={<Login/>} />
       <Route path="/defaultcard" element={<DefaultCard/>} />
       <Route path="/companyRegister" element={<CompanyRegister/>} />

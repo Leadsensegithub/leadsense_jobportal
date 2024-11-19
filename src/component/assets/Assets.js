@@ -18,6 +18,8 @@ import Reality from "./realty-icon.png"
 import Gadgets from "./gagdets-icon.png"
 import Sports from "./sports-icon.png"
 import Hospitality from "./hospitality-icon.png"
+import Vedio from "./vedio.mp4"
+
 const Assets = {
     LSmediaLOGO: LSmediaLOGO,
     Top: Top,
@@ -38,6 +40,7 @@ const Assets = {
     Reality:Reality,
     Gadgets:Gadgets,
     Sports:Sports,
-    Hospitality:Hospitality
+    Hospitality:Hospitality,
+    Vedio:Vedio,
 }
 export default Assets

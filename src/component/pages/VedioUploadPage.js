@@ -3,7 +3,8 @@ import Button from "../com/Button";
 import { useNavigate } from "react-router-dom";
  
 import PageHeader from "../com/PageHeader";
-
+import Assets from "../assets/Assets";
+import vedio from "../assets/vedio.mp4"
 const VedioUploadPage = ({ onNext }) => {
   const nav = useNavigate();
   const [file, setFile] = useState(null);
@@ -33,6 +34,8 @@ const VedioUploadPage = ({ onNext }) => {
     <div>
       <PageHeader/>
     <div className="container">
+    <div className="row">
+      <div className="col-md-6">
       <div className="container d-flex mt-5">
         <div className="d-flex flex-column mt-5">
           <div className="d-flex">Please create a short,</div>
@@ -44,6 +47,13 @@ const VedioUploadPage = ({ onNext }) => {
         <input type="file" onChange={handleChange} />
       </div>
       {error && <div className=" d-flex text-danger mt-2">{error}</div>}
+      </div>
+      <div className="col-md-6">
+        <div >
+          <img src={vedio} type="video/mp4" alt="Loading..." className="m-md-100"></img>
+        </div>
+      </div>
+    </div>
       <div className="d-flex justify-content-end mt-5">
         <Button onClick={handleButton}>Submit</Button>
       </div>
