@@ -43,7 +43,7 @@ function DefaultHeader() {
             </li>
             <li>
               <button className="btn btn btn-danger " onClick={() => navigate("/register")}>
-                Register
+               Student Register
               </button>
             </li>
             <li>

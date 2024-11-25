@@ -19,6 +19,7 @@ import Gadgets from "./gagdets-icon.png"
 import Sports from "./sports-icon.png"
 import Hospitality from "./hospitality-icon.png"
 import Vedio from "./vedio.mp4"
+import EmptyProfile from "./emprtyprofile.webp"
 
 const Assets = {
     LSmediaLOGO: LSmediaLOGO,
@@ -42,5 +43,6 @@ const Assets = {
     Sports:Sports,
     Hospitality:Hospitality,
     Vedio:Vedio,
+    EmptyProfile:EmptyProfile
 }
 export default Assets

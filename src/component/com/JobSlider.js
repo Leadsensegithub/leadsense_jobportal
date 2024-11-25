@@ -4,17 +4,17 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../css/JobSlider.css";
 
-// Custom Next Arrow for mobile
+// Custom Next Arrow
 const NextArrow = ({ onClick }) => (
-  <button className="job-slick-next" onClick={onClick}>
-    &#10095;
+  <button className="slick-next" onClick={onClick}>
+    &#10095; {/* Right chevron */}
   </button>
 );
 
-// Custom Prev Arrow for mobile
+// Custom Prev Arrow
 const PrevArrow = ({ onClick }) => (
-  <button className="job-slick-prev" onClick={onClick}>
-    &#10094;
+  <button className="slick-prev" onClick={onClick}>
+    &#10094; {/* Left chevron */}
   </button>
 );
 
@@ -31,15 +31,19 @@ const JobSlider = () => {
   ];
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
-    speed: 400,
+    speed: 800, // Smooth animation speed
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: false,
-    arrows: false,  // Default arrows visible on desktop
-    nextArrow: <NextArrow />,  // Custom next arrow
-    prevArrow: <PrevArrow />,  // Custom prev arrow
+    autoplay: true,
+    swipe: true, // Enable swipe functionality
+    touchMove: true, // Ensure touch interaction
+    draggable: true, // Enable drag on desktop
+    easing: "ease-in-out", // Smooth easing effect
+    arrows: true, // Use custom arrows
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
     responsive: [
       {
         breakpoint: 1200,
@@ -63,19 +67,21 @@ const JobSlider = () => {
   };
 
   return (
-    <div className="slider-container">
+    <div className="container mt-5">
       <Slider ref={sliderRef} {...settings}>
         {jobCards.map((job, index) => (
-          <div key={index} className="cards">
-            <p>{job.title}</p>
-            <p>
-              <i className="fa-solid fa-briefcase" style={{ marginRight: "8px", color: "black" }}></i>
-              {job.experience}
-            </p>
-            <p>
-              <i className="fa-solid fa-location-dot" style={{ marginRight: "8px" }}></i>
-              {job.locations}
-            </p>
+          <div key={index} className="card shadow-sm border-0 rounded p-3">
+            <div className="card-body">
+              <h5 className="card-title text-primary">{job.title}</h5>
+              <p className="card-text">
+                <i className="fa-solid fa-briefcase me-2"></i>
+                {job.experience}
+              </p>
+              <p className="card-text">
+                <i className="fa-solid fa-location-dot me-2"></i>
+                {job.locations}
+              </p>
+            </div>
           </div>
         ))}
       </Slider>

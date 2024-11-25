@@ -21,7 +21,7 @@ const SlideButtons = ({ list }) => {
   };
 
   return (
-    <div className="slider-container">
+    <div className="sliderbtn-container">
 
       <Slider ref={sliderRef} {...settings}>
         {list.map((lists, index) => (
