@@ -24,6 +24,7 @@ import DefaultCard from './component/com/DefaultCard';
 import Login from './component/pages/Login';
 import CareerPreference from './component/com/LastPageComponets/CareerPreference';
 import Profile from './component/pages/Profile';
+import BuyCards from './component/com/BuyCards';
 
 function App() {
   const location = useLocation();
@@ -66,8 +67,8 @@ function App() {
       <Route path="/login" element={<Login/>} />
       <Route path="/defaultcard" element={<DefaultCard/>} />
       <Route path="/companyRegister" element={<CompanyRegister/>} />
-      <Route path="/card" element={<Card/>} />
-      <Route path="/search" element={<Search/>} />
+      <Route path="/buycards" element={<BuyCards/>} />
+      <Route path="/login/dasboard" element={<Search/>} />
       <Route path="/aboutus" element={<AboutUs/>} />
         <Route path="/" element={<LandingPage />} />
         <Route path="/register" element={<StudentRegister />} />

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../css/Loader.css';
 
-const Loader = ({ duration = 3000 }) => {
+const Loader = ({ duration = 1500 }) => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const timer = setTimeout(() => {

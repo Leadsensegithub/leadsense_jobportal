@@ -33,15 +33,15 @@ const JobSlider = () => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 800, // Smooth animation speed
+    speed: 800,  
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    swipe: true, // Enable swipe functionality
-    touchMove: true, // Ensure touch interaction
-    draggable: true, // Enable drag on desktop
-    easing: "ease-in-out", // Smooth easing effect
-    arrows: true, // Use custom arrows
+    swipe: true, 
+    touchMove: true,  
+    draggable: true,  
+    easing: "ease-in-out",  
+    arrows: true,  
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [

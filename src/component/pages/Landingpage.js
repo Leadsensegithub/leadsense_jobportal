@@ -1,61 +1,237 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import "../css/LandingPage.css";
 import Assets from "../assets/Assets";
- 
-
- 
-import SliderComponent from "./SliderComponent";
-import JobSlider from "../com/JobSlider";
-import BuyCards from "../com/BuyCards";
-import Fotter from "../com/Fotter"
 import DefaultHeader from "../com/DefaultHeader";
-function LandingPage() {
+import JobSlider from "../com/JobSlider"; 
+import SliderComponent from "./SliderComponent";  
+import BuyCards from "../com/BuyCards";  
+import Fotter from "../com/Fotter";   
+
+
+const LandingPage = () => {
+
+
+     // Scroll to top on component load
+     useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
   
+  const [input, setInput] = useState({
+    skills: "",
+    university: "",
+    locations: "",
+  });
+
+  // State to manage filtered suggestions for each field
+  const [filteredSuggestions, setFilteredSuggestions] = useState({
+    skills: [],
+    universities: [],
+    locations: [],
+  });
+
+  // Lists of possible suggestions
+  const skillsList = [
+    "JavaScript", "React", "Node.js", "CSS", "HTML", "Python", 
+    "MySQL", "PostgreSQL", "MongoDB", "SQLite", "Oracle DB", "Firebase"
+  ];
+
+  const universitiesList = [
+    "MIT", "Harvard", "Stanford", "Bharathidasan University", 
+    "Indian Institute of Technology (IIT) Bombay", 
+    "Indian Institute of Technology (IIT) Delhi", 
+    "Indian Institute of Technology (IIT) Kanpur", 
+    "Indian Institute of Technology (IIT) Madras", 
+    "Indian Institute of Technology (IIT) Kharagpur", 
+    "Indian Institute of Science (IISc), Bangalore", 
+    "Jawaharlal Nehru University (JNU), New Delhi", 
+    "University of Delhi (DU)", 
+    "University of Pune (SPPU)", 
+    "Banasthali Vidyapith, Rajasthan", 
+    "Banaras Hindu University (BHU), Varanasi", 
+    "Bharathidasan University, Tamil Nadu", 
+    "Anna University, Chennai", 
+    "Jadavpur University, Kolkata"
+  ];
+
+  const locationsList = [
+    "Tiruchirappalli", "Chennai", "Bangalore", "Mumbai", 
+    "Hyderabad", "Pune", "Kolkata", "Ahmedabad", "Jaipur", 
+    "Chandigarh", "Kochi", "Lucknow", "Mysore", "Goa"
+  ];
+
+  // Handle input change and filter suggestions
+  const handleInputChange = (e, field) => {
+    const value = e.target.value;
+    setInput({
+      ...input,
+      [field]: value,
+    });
+
+    let updatedSuggestions = { ...filteredSuggestions };
+
+    if (field === "skills") {
+      updatedSuggestions.skills = skillsList.filter((item) =>
+        item.toLowerCase().includes(value.toLowerCase())
+      );
+    }
+
+    if (field === "university") {
+      updatedSuggestions.universities = universitiesList.filter((item) =>
+        item.toLowerCase().includes(value.toLowerCase())
+      );
+    }
+
+    if (field === "locations") {
+      updatedSuggestions.locations = locationsList.filter((item) =>
+        item.toLowerCase().includes(value.toLowerCase())
+      );
+    }
+
+    setFilteredSuggestions(updatedSuggestions);
+  };
+
+  // Handle suggestion click
+  const handleSuggestionClick = (suggestion, type) => {
+    setInput((prevInput) => ({
+      ...prevInput,
+      [type]: suggestion,
+    }));
+
+    setFilteredSuggestions((prev) => ({
+      ...prev,
+      [type]: [], // Clear suggestions after selection
+    }));
+  };
   return (
     <>
+    <div>
       <div className="landingPage">
-      <DefaultHeader />
-        <div className="imgs">
-          <img src={Assets?.Top} alt="top"></img>
+        <DefaultHeader />
+        <div className="imgs" style={{marginTop:"50px"}}>
+          <img src={Assets?.Top} alt="top" />
         </div>
-        <div className="row serchbar" >
-  <div className="col-lg-12">
-    <div className="header"></div>
-  </div>
-  <div className="col-12 col-sm-10 col-md-8 col-lg-6 offset-sm-1">
-    <div className="info-body">
-      <div className="col-12">
-        <div className="info-body">
-          <div className="row">
-            <div className="col-12">
-              <div className="search_info" style={{ display: "flex", justifyContent: "flex-start" }}>
+       
+
+        <div style={{ marginLeft: "30px", marginTop: "50px" }} className="container">
+      <div className="row">
+        <div className="col-12">
+          <div className="row bg-white p-2 rounded-3 shadow-sm align-items-center position-relative">
+            
+            {/* Skills Input */}
+            <div className="col-12 col-sm-4 col-md-3">
+              <div className="form-floating">
                 <input
-                  className="skills p-2"
-                  placeholder="Enter skills / job title"
-                ></input>
-                <input
-                  className="University p-2"
-                  placeholder="University"
-                ></input>
-                <input
-                  className="Locations p-2"
-                  placeholder="Locations"
-                ></input>
-                <button className=" p-3 btn btn-primary">
-                  Search
-                </button>
+                  style={{ width: "100%", fontSize: "1.3rem" }}
+                  type="text"
+                  className="form-control form-control-sm"
+                  id="skillsInput"
+                  placeholder="Skills / Job Title"
+                  value={input.skills}
+                  onChange={(e) => handleInputChange(e, "skills")}
+                />
+                <label htmlFor="skillsInput">Skills / Job Title</label>
+                {filteredSuggestions.skills.length > 0 && (
+                  <ul className="suggestion-list mt-2 position-absolute w-100">
+                    {filteredSuggestions.skills.map((suggestion, index) => (
+                      <li
+                        key={index}
+                        className="list-group-item list-group-item-action"
+                        onClick={() => handleSuggestionClick(suggestion, "skills")}
+                      >
+                        {suggestion}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
+            </div>
+
+            {/* University Input */}
+            <div className="col-12 col-sm-4 col-md-3">
+              <div className="form-floating">
+                <input
+                  style={{ width: "100%", fontSize: "1.3rem" }}
+                  type="text"
+                  className="form-control form-control-sm"
+                  id="universityInput"
+                  placeholder="University"
+                  value={input.university}
+                  onChange={(e) => handleInputChange(e, "university")}
+                />
+                <label htmlFor="universityInput">University</label>
+                {filteredSuggestions.universities.length > 0 &&   (
+                  <ul
+                    className="suggestion-list mt-2 position-absolute w-100"
+                    style={{
+                     
+                      backgroundColor: "white",
+                      border: "1px solid #ccc",
+                      borderRadius: "5px",
+                    }}
+                  >
+                    {filteredSuggestions.universities.map((suggestion, index) => (
+                      <li
+                        key={index}
+                        className="list-group-item list-group-item-action"
+                        onClick={() => handleSuggestionClick(suggestion, "university")}
+                      >
+                        {suggestion}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
+
+            {/* Location Input */}
+            <div className="col-12 col-sm-4 col-md-3">
+              <div className="form-floating">
+                <input
+                  style={{ width: "100%", fontSize: "1.3rem" }}
+                  type="text"
+                  className="form-control form-control-sm"
+                  id="locationInput"
+                  placeholder="Locations"
+                  value={input.locations}
+                  onChange={(e) => handleInputChange(e, "locations")}
+                />
+                <label htmlFor="locationInput">Locations</label>
+                {filteredSuggestions.locations.length > 0 && (
+                  <ul className="suggestion-list mt-2 position-absolute w-100">
+                    {filteredSuggestions.locations.map((suggestion, index) => (
+                      <li
+                        key={index}
+                        className="list-group-item list-group-item-action"
+                        onClick={() => handleSuggestionClick(suggestion, "locations")}
+                      >
+                        {suggestion}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
+
+            {/* Search Button */}
+            <div className="col-12 col-sm-4 col-md-2">
+              <button className="btn btn-danger btn-sm w-100" style={{ padding: "10px", fontSize: "larger" }}>
+                Search
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+
+
+
 
       </div>
+    </div>
+ 
 
-<div className="media">
+
+<div className="media" style={{marginTop:"50px"}}>
 <div className="header-content">
   <h1>Find Your Next Career Opportunity</h1>
   <p className="tagline">Your gateway to top jobs and opportunities</p>
@@ -243,8 +419,7 @@ function LandingPage() {
        </div>
 
 <Fotter/>
-
-  
+ 
     </>
   );
 }

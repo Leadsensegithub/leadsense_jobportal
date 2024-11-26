@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "../css/AboutUs.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Assets from "../assets/Assets";
@@ -6,6 +6,7 @@ import Fotter from "../com/Fotter";
 import Timeline from "../com/TimeLine";
 import SliderComponent from "../com/SliderComponent";
 import SliderTiedUpCompany from "../com/SliderTiedUpCompany";
+import DefaultHeader from "../com/DefaultHeader";
 
 const images = [Assets.ImgOne, Assets.ImgTh, Assets.Imgt];
 
@@ -27,6 +28,14 @@ function AboutUs() {
         "The team was fantastic, delivering beyond expectations. They kept everything well-organized and maintained clear communication throughout.",
     },
   ]);
+
+
+
+    // Scroll to top on component load
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+  
 
   const [newReview, setNewReview] = useState({
     imgSrc: Assets.RoundImg,
@@ -57,7 +66,8 @@ function AboutUs() {
   }
   return (
     <div>
-      <div className="marginSlider">
+      <DefaultHeader />
+      <div style={{marginTop:"2px"}} className="marginSlider">
         <SliderComponent images={images} />
       </div>
       {showModal && (

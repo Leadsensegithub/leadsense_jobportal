@@ -10,12 +10,16 @@ function Search() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
+  const handlelogout =()=>{
+    navigate("/login")
+  }
+ 
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
     if (!menuOpen) {
-      document.body.style.overflow = "hidden"; // Disable scroll when menu is open
-    } else {
-      document.body.style.overflow = "auto"; // Re-enable scroll
+      document.body.style.overflow = "hidden";  
+      document.body.style.overflow = "auto";  
     }
   };
 
@@ -83,7 +87,7 @@ function Search() {
           <div className={`navbar-links ${menuOpen ? "active" : ""}`}>
             <ul>
               <li>
-                <button className="btn btn-danger" onClick={() => navigate("/logout")}>
+                <button className="btn btn-danger" onClick={handlelogout}>
                   LogOut
                 </button>
               </li>
@@ -168,7 +172,7 @@ function Search() {
                         <p>
                           <strong>Role:</strong> {user.role}
                         </p>
-                        <button className="btn btn-danger view-btn">View Profile</button>
+                        <button onClick={()=> navigate("/lastpage")} className="btn btn-danger view-btn">View Profile</button>
                       </div>
                     </div>
                   </div>

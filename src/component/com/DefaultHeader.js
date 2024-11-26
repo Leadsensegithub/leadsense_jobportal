@@ -8,6 +8,10 @@ function DefaultHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
+  const handlehome=()=>{
+    navigate("/")
+  }
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
     if (!menuOpen) {
@@ -22,6 +26,7 @@ function DefaultHeader() {
       <div className="navbar">
         <div className="logo">
           <img
+          onClick={handlehome}
             src={Assets.LSmediaLOGO} // Replace with your logo path
             alt="Logo"
             className="navbar-logo"
