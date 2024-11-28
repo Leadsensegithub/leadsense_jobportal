@@ -1,38 +1,35 @@
- 
- 
+.sidebar-wrapper {
+  position: relative;
+  display: flex;
+}
+
 .sidebar {
   position: relative;
   display: flex;
   flex-direction: column;
   background-color: #343a40;
   color: #fff;
-  height:106.2vh;
+  height: 106.2vh;
   overflow: hidden;
   padding: 16px;
   transition: width 0.4s ease;
- 
-}
-
-.sidebar h3 {
-  font-size: 1.5rem;
-  color: #fff;
-  margin-bottom: 20px;
 }
 
 .sidebar__collapse-button {
   position: absolute;
-  top: 16px;
-  right: -12px;
+  top: 20px; /* Keep the button visible on top of the sidebar */
+  left: -45px; /* Adjust the button position to be outside */
   background-color: #495057;
   border: none;
   border-radius: 50%;
-  width: 32px;
-  height: 32px;
+  width: 40px; /* Larger button size for better visibility */
+  height: 40px; /* Larger button size for better visibility */
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  z-index: 10; /* Ensures the button is above other elements */
 }
 
 .sidebar__collapse-button:hover {

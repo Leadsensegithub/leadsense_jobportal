@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { LuHome, LuMail, LuFolderClosed, LuStickyNote, LuBell, LuChevronRight, LuChevronLeft } from "react-icons/lu";
 import clsx from "clsx";
-import "../css/SideBar.css"
- 
+import "../css/SideBar.css";
+
 const SIDEBAR_ITEMS = [
   { id: "dashboard", title: "Dashboard", icon: LuHome },
   { id: "mail", title: "Mail", icon: LuMail },
@@ -17,28 +17,31 @@ const Sidebar = () => {
   const [activeTab, setActiveTab] = useState(SIDEBAR_ITEMS[0].id);
 
   return (
-    <motion.div
-      className="sidebar"
-      animate={{ width: isCollapsed ? 80 : 280 }}
-      layout
-    >
-      
+    <div className="sidebar-wrapper">
+      {/* Button outside Sidebar but inside the wrapper */}
       <button
         className="sidebar__collapse-button"
         onClick={() => setIsCollapsed(!isCollapsed)}
       >
         {isCollapsed ? <LuChevronRight /> : <LuChevronLeft />}
       </button>
-      {SIDEBAR_ITEMS.map((item) => (
-        <SidebarItem
-          key={item.id}
-          item={item}
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-          isSidebarCollapsed={isCollapsed}
-        />
-      ))}
-    </motion.div>
+
+      <motion.div
+        className="sidebar"
+        animate={{ width: isCollapsed ? 80 : 280 }}
+        layout
+      >
+        {SIDEBAR_ITEMS.map((item) => (
+          <SidebarItem
+            key={item.id}
+            item={item}
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+            isSidebarCollapsed={isCollapsed}
+          />
+        ))}
+      </motion.div>
+    </div>
   );
 };
 

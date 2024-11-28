@@ -10,23 +10,19 @@ function Search() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
-  const handlelogout =()=>{
-    navigate("/login")
-  }
- 
+  const handleLogout = () => {
+    navigate("/login");
+  };
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
-    if (!menuOpen) {
-      document.body.style.overflow = "hidden";  
-      document.body.style.overflow = "auto";  
-    }
+    document.body.style.overflow = menuOpen ? "auto" : "hidden";
   };
 
   const users = [
     {
       name: "John",
-      education: "Bachelor of Computer Science", 
+      education: "Bachelor of Computer Science",
       role: "React Developer",
       certifications: "MERN Stack Development, React.js Certification",
       experience: "2 years",
@@ -36,38 +32,29 @@ function Search() {
       education: "Master of Information Technology",
       role: "Backend Developer",
       certifications: "Node.js, MongoDB Certification",
-      experience: "3 years  ",
-    },
-
-    {
-      name: "Jane",
-      education: "Master of Information Technology",
-      role: "Backend Developer",
-      certifications: "Node.js, MongoDB Certification",
-      experience: "3 years  ",
+      experience: "3 years",
     },
     {
-      name: "Jane",
-      education: "Master of Information Technology",
-      role: "Backend Developer",
-      certifications: "Node.js, MongoDB Certification",
-      experience: "3 years  ",
+      name: "Alice",
+      education: "Bachelor of Software Engineering",
+      role: "Full-Stack Developer",
+      certifications: "React.js, Node.js, MongoDB",
+      experience: "4 years",
     },
     {
-      name: "Jane",
-      education: "Master of Information Technology",
-      role: "Backend Developer",
-      certifications: "Node.js, MongoDB Certification",
-      experience: "3 years  ",
+      name: "Bob",
+      education: "Master of Data Science",
+      role: "Data Scientist",
+      certifications: "Python, Machine Learning",
+      experience: "5 years",
     },
     {
-      name: "Jane",
-      education: "Master of Information Technology",
-      role: "Backend Developer",
-      certifications: "Node.js, MongoDB Certification",
-      experience: "3 years  ",
+      name: "Charlie",
+      education: "Bachelor of Information Technology",
+      role: "Frontend Developer",
+      certifications: "React, Redux, HTML5, CSS3",
+      experience: "2 years",
     },
-    // Additional user profiles
   ];
 
   return (
@@ -87,7 +74,7 @@ function Search() {
           <div className={`navbar-links ${menuOpen ? "active" : ""}`}>
             <ul>
               <li>
-                <button className="btn btn-danger" onClick={handlelogout}>
+                <button className="btn btn-danger" onClick={handleLogout}>
                   LogOut
                 </button>
               </li>
@@ -113,7 +100,9 @@ function Search() {
               <h2>
                 <i className="fas fa-briefcase"></i> Find the Right Candidate
               </h2>
-              <p className="subtitle">Filter candidates based on your requirements</p>
+              <p className="subtitle">
+                Filter candidates based on your requirements
+              </p>
             </div>
 
             {/* Filter Section */}
@@ -148,10 +137,14 @@ function Search() {
             </div>
           </div>
 
-          <div className="container my-4 user-cards">
+          {/* User Cards Section */}
+          <div className="container user-cards">
             <div className="row">
               {users.map((user, index) => (
-                <div className="col-12 col-sm-6 col-md-6 col-lg-4 mb-4" key={index}>
+                <div
+                  className="col-12 col-sm-6 col-md-6 col-lg-4 mb-4"
+                  key={index}
+                >
                   <div className="cards shadow-sm user-profile-card">
                     <div className="d-flex flex-column align-items-center p-3">
                       <img
@@ -159,20 +152,25 @@ function Search() {
                         alt="User Profile"
                         className="img-fluid rounded-circle mb-3 user-profile-pic"
                       />
-                      <div className="text-left user-info">
-                        <h5 className="text-center text-primary card-title">{user.name}</h5>
+                      <div className="user-info">
+                        <h5 className="text-center text-primary card-title">
+                          {user.name}
+                        </h5>
                         <p>
                           <strong>Education:</strong> {user.education}
                         </p>
-                       
                         <p>
                           <strong>Experience:</strong> {user.experience}
                         </p>
-
                         <p>
                           <strong>Role:</strong> {user.role}
                         </p>
-                        <button onClick={()=> navigate("/lastpage")} className="btn btn-danger view-btn">View Profile</button>
+                        <button
+                          onClick={() => navigate("/lastpage")}
+                          className="btn btn-danger view-btn"
+                        >
+                          View Profile
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -182,7 +180,8 @@ function Search() {
           </div>
         </div>
       </div>
-      <Fotter />
+
+   <Fotter />
     </>
   );
 }

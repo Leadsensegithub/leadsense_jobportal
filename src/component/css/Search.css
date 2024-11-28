@@ -148,6 +148,7 @@
   .user-info {
     font-size: 0.875rem;
     margin-top: 10px;
+    text-align: left;
   }
   
   .card-title {
@@ -184,6 +185,8 @@
     transform: scale(1.05); /* Slightly scale up the element */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect */
   }
+
+ 
   /* Media Queries for Responsiveness */
   @media (max-width: 768px) {
     .filter-row {

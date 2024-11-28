@@ -15,9 +15,9 @@ function DefaultHeader() {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
     if (!menuOpen) {
-      document.body.style.overflow = "hidden"; // Disable scroll when the menu is open
+      document.body.style.overflow = "hidden";  
     } else {
-      document.body.style.overflow = "auto"; // Re-enable scroll when the menu is closed
+      document.body.style.overflow = "auto";  
     }
   };
 
