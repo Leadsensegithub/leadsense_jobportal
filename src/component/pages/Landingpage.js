@@ -82,7 +82,7 @@ const LandingPage = () => {
         </div>
      
 
-        <div style={{ marginLeft: "30px", marginTop: "50px" }} className="container">
+        <div style={{ marginLeft: "70px", marginTop: "180px" }} className="container">
       <div className="row">
         <div className="col-12">
           <div className="row bg-white p-2 rounded-3 shadow-sm align-items-center position-relative">
@@ -198,7 +198,7 @@ const LandingPage = () => {
             <div className="col-12 col-sm-4 col-md-2">
               <button
                 className="btn btn-danger btn-sm w-100"
-                style={{ padding: "10px", fontSize: "larger" }}
+                style={{ padding: "10px", fontSize: "larger",  marginLeft:"40px"}}
               >
                 Search
               </button>
@@ -213,7 +213,7 @@ const LandingPage = () => {
  
 
 
-<div className="media" style={{marginTop:"50px"}}>
+<div className="media" style={{marginTop:"50px", paddingLeft:"60px"}}>
 <div className="header-content">
   <h1>Find Your Next Career Opportunity</h1>
   <p className="tagline">Your gateway to top jobs and opportunities</p>
@@ -239,7 +239,7 @@ const LandingPage = () => {
         </div>
       </div>
 
-      <div className="job_intern">
+      <div className="job_intern text-danger">
         <h1>Job</h1>
         <h1>Internship</h1>
       </div>

@@ -53,6 +53,8 @@
   display: flex;
   overflow: hidden;
   background-color: #cddef8; 
+ 
+  width: 100%;
 }
 
 .career-button:hover {
@@ -140,3 +142,67 @@
 .slick-prev, .slick-next {
   display: none !important;
 }
+/* Slider Styles */
+.auto-slider-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.auto-slider-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+/* Explore Section Styles */
+
+.explore{
+  margin-left: 40px;
+}
+
+.explore-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #f8f9fa; /* Light background for contrast */
+  flex-wrap: wrap; /* Ensure responsive stacking */
+ 
+  height: 100%;
+}
+
+.explore-text {
+  flex: 1;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-right: 20px; /* Space between text and image */
+  /* padding: 5px; */
+  margin-bottom: 5px;
+ 
+}
+
+.explore-image {
+  flex: 1;
+  max-width: 500px;
+  width: 300px; /* Ensures image responsiveness */
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  padding: 10px;
+}
+
+/* Optional responsiveness for smaller screens */
+@media (max-width: 768px) {
+  .explore-text {
+    font-size: 20px;
+    margin-bottom: 10px; /* Adjust spacing */
+  }
+  .explore-section {
+    flex-direction: column; /* Stack text and image vertically */
+  }
+}
+
+
+ 

@@ -1,41 +1,52 @@
+/* Sidebar Wrapper */
 .sidebar-wrapper {
   position: relative;
   display: flex;
+  
 }
 
+/* Sidebar */
 .sidebar {
   position: relative;
   display: flex;
   flex-direction: column;
   background-color: #343a40;
   color: #fff;
-  height: 106.2vh;
+  height: 100%;
   overflow: hidden;
   padding: 16px;
   transition: width 0.4s ease;
 }
 
+/* Sidebar Collapse Button (Arrow style) */
 .sidebar__collapse-button {
   position: absolute;
-  top: 20px; /* Keep the button visible on top of the sidebar */
-  left: -45px; /* Adjust the button position to be outside */
-  background-color: #495057;
+  top: 20px;
+  right: -50px; /* Adjusting position to align correctly */
+  background-color: transparent;
   border: none;
-  border-radius: 50%;
-  width: 40px; /* Larger button size for better visibility */
-  height: 40px; /* Larger button size for better visibility */
-  display: flex;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  z-index: 10; /* Ensures the button is above other elements */
+  z-index: 11; /* Ensure the button stays on top of the sidebar */
+  transition: transform 0.3s ease;
+  font-size: larger;
+  font-weight: bolder;
+  
+    
 }
 
-.sidebar__collapse-button:hover {
-  background-color: #6c757d;
+.sidebar__collapse-button:before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  
+  transition: transform 0.3s ease;
 }
 
+ 
+/* Sidebar Items */
 .sidebar-item {
   position: relative;
   display: flex;

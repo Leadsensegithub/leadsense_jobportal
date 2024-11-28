@@ -33,13 +33,13 @@ function BuyCards() {
 
           {/* Gold Card */}
           <div className="col-12 col-md-4 mb-4">
-            <div className="buy_card buy_card_gold card_wrapper">
+            <div className="buy_card buy_card card_wrapper">
               <h3>Gold</h3>
               <p className="card_description">
                 Ideal for growing businesses. Unlock more storage, faster support, and advanced analytics to optimize your operations.
               </p>
               <div className="card_price">
-                <span className="gold_price">$49.99</span> / month
+                <span className=" price ">$49.99</span> / month
               </div>
               <ul className="card_benefits">
                 <li>5 Websites</li>
@@ -77,7 +77,7 @@ function BuyCards() {
                 <li>Priority Customer Service</li>
               </ul>
               <p className="cta_description">Talk to an expert today for personalized pricing and plan details.</p>
-              <button className=" btn btn-primary buy_button">Buy Now</button>
+              <button className="btn btn-primary buy_button">Buy Now</button>
               <div className="rating">
                 <span>⭐⭐⭐⭐⭐</span><span className='span_text'>(4.8/5 based on 315 reviews)</span>
               </div>
@@ -94,4 +94,3 @@ function BuyCards() {
 }
 
 export default BuyCards;
- 

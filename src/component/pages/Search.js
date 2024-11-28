@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa";
+ 
 import "../css/Search.css";
 import Assets from "../assets/Assets";
 import SideBar from "../com/SideBar";
 import Fotter from "../com/Fotter";
+import { FaBell, FaTimes, FaBars } from "react-icons/fa";
 
 function Search() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -59,38 +60,43 @@ function Search() {
 
   return (
     <>
-      <div className="navbar-container">
-        <div className="navbar">
-          <div className="logo">
-            <img src={Assets.LSmediaLOGO} alt="Logo" className="navbar-logo" />
-          </div>
+<div className="das_navbar-container">
+  <div className="navbar">
+    <div className="logo">
+      <img src={Assets.LSmediaLOGO} alt="Logo" className="navbar-logo" />
+    </div>
 
-          {/* Mobile Hamburger Icon */}
-          <div className="navbar-toggle" onClick={toggleMenu}>
-            {menuOpen ? <FaTimes size={30} /> : <FaBars size={30} />}
-          </div>
+    {/* Mobile Hamburger Icon */}
+    <div className="navbar-toggle" onClick={toggleMenu}>
+      {menuOpen ? <FaTimes size={30} /> : <FaBars size={30} />}
+    </div>
 
-          {/* Navbar Links */}
-          <div className={`navbar-links ${menuOpen ? "active" : ""}`}>
-            <ul>
-              <li>
-                <button className="btn btn-danger" onClick={handleLogout}>
-                  LogOut
-                </button>
-              </li>
-              <li>
-                <img
-                  src={Assets.EmptyProfile}
-                  className="emptyprofile"
-                  onClick={() => navigate("/profile")}
-                  alt="Profile"
-                />
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
+    {/* Navbar Links */}
+    <div className={`navbar-links ${menuOpen ? "active" : ""}`}>
+      <ul>
+        <li>
+          <button className="btn btn-danger" onClick={handleLogout}>
+            LogOut
+          </button>
+        </li>
+        <li>
+          <img
+            src={Assets.EmptyProfile}
+            className="emptyprofile"
+            onClick={() => navigate("/profile")}
+            alt="Profile"
+          />
+        </li>
+        {/* Notification Icon */}
+        <li className="notification-icon">
+          <FaBell size={25} />
+         
+           
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
       <div className="search-page">
         <SideBar />
         <div className="content-container">
@@ -181,7 +187,7 @@ function Search() {
         </div>
       </div>
 
-   <Fotter />
+ 
     </>
   );
 }

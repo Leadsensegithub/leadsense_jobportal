@@ -2,7 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../css/SliderComponent.css"
+import "../css/SliderComponent.css";
 
 const SliderComponent = ({ images }) => {
   const settings = {

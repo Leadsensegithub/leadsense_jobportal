@@ -1,23 +1,25 @@
-/* General Styles for Buy Cards */
 .buy_card {
   background-color: whitesmoke; 
   border: 1px solid #ddd;
-   
   border-radius: 10px;
   padding: 20px;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
 }
-
 .buy_card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  background-color: #0D6EFD;
+  transition: 0.5s;
+  cursor: pointer;
 }
+
 
 .buy_card h3 {
   font-size: 1.5rem;
@@ -26,30 +28,31 @@
   font-weight: bolder;
 }
 
+
+ 
 .card_description {
   font-size: 1rem;
-  color: #666; /* Default color */
+  color: #666; 
   margin-bottom: 15px;
 }
 
 .card_price {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #333; /* Default color */
   margin-bottom: 20px;
 }
 
 .price {
   font-size: 1.4rem;
-  color: #007bff; /* Price color */
+  color: #007bff;
 }
-.gold_price{
+
+ 
+
+.span_text {
   color: black;
 }
 
-.span_text{
-  color:black;
-}
 .card_benefits {
   list-style-type: none;
   padding-left: 0;
@@ -58,7 +61,7 @@
 
 .card_benefits li {
   font-size: 1rem;
-  color: #555; /* Default color */
+  color: #555;
   margin-bottom: 10px;
   padding-left: 20px;
   text-align: left;
@@ -109,32 +112,60 @@
   text-align: center;
 }
 
- 
 
- 
-
-/* Gold Card Styling */
-.buy_card_gold {
-  background-color: #0D6EFD;  
-     
+.buy_card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  background-color: #0D6EFD;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+.buy_card:hover h3,
+.buy_card:hover .card_description,
+.buy_card:hover .cta_description,
+.buy_card:hover .card_benefits li,
+.buy_card:hover .span_text {
+  color: #FFFFFF; /* Primary text: white for maximum contrast */
+  cursor: pointer;
 }
 
-/* New button color for Gold card */
-.buy_card_gold .buy_button {
-  background-color:#22177A;
-  color: whitesmoke;
-  border: 2px solid #0D6EFD;
+.buy_card:hover .rating span {
+  color: #FFD700; /* Gold for star ratings */
+}
+
+.buy_card:hover .card_price .price {
+  color: #F1F1F1; /* Slightly softer white for pricing */
+}
+
+
+.buy_button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
   font-weight: bolder;
 }
 
+.buy_card:hover .buy_button {
+  background-color:  whitesmoke; /* Change button background on hover */
+  color: #007bff; /* Blue text for contrast */
+  font-weight: bolder;
+}
+
+.offer_banner {
+  background-color: #28a745;
+  color: white;
+  padding: 10px;
+  margin-top: 15px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
  
 
-/* Text color change for Gold Card */
-.buy_card_gold h3,
-.buy_card_gold .card_description,
-.buy_card_gold .card_price,
-.buy_card_gold .card_benefits li,
-.buy_card_gold .cta_description {
-  color: white; /* White text for all text elements in the Gold Card */
-}
+ 
  

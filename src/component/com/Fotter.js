@@ -29,12 +29,12 @@ const Fotter = () => {
                 </li>
               </ul>
             </div>
-            <div className="col-md-4">
+            <div className="col-md-4 text-start">
               <h5 className="text-danger">Contact Us</h5>
               <p>Flat No 11, 3rd Floor, C wing Parsn Manere,Gangaikaraipuram, Anna Salai, Chennai 600006, Tamil Nadu</p>
               <p>Email: john@theleadsense.com</p>
               <p>Phone: +91 9498325088</p>
-              <div className="d-flex justify-content-center">
+              <div className="d-flex justify-content-start">
                 <NavLink
                   to="https://www.instagram.com"
                   className="custom-nav-link "

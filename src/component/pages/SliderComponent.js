@@ -44,13 +44,14 @@ const SliderComponent = () => {
   return (
     <>
       <div className="  car-img">
-        <div className="col-lg-3">
-          <h1 style={{ fontSize: "18px" }}>
-            Explore Business Listings <br /> Across Key Career Paths
-          </h1>
-          <div className="col">
-            <img style={{ width: "300px" }}  src={Assets.Career_img} alt="loading..." />
-          </div>
+        <div  className="col-lg-3 explore">
+        <div className="explore-section">
+      <div className="explore-text">
+        Explore Business Listings Across Key Career Paths
+      </div>
+      <img src={Assets.Career_img} alt="Explore Business" className="explore-image" />
+    </div>
+           
         </div>
         <div className=" col-lg-6  career-slider-container">
           {/* Custom Previous Button */}

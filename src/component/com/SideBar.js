@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { LuHome, LuMail, LuFolderClosed, LuStickyNote, LuBell, LuChevronRight, LuChevronLeft } from "react-icons/lu";
+import { LuHome, LuMail, LuFolderClosed, LuBell, LuChevronRight, LuChevronLeft, LuCalendar } from "react-icons/lu"; // Import the LuCalendar icon
 import clsx from "clsx";
 import "../css/SideBar.css";
 
+// Sidebar Items
 const SIDEBAR_ITEMS = [
   { id: "dashboard", title: "Dashboard", icon: LuHome },
   { id: "mail", title: "Mail", icon: LuMail },
-  { id: "projects", title: "Projects", icon: LuFolderClosed },
-  { id: "reports", title: "Reports", icon: LuStickyNote },
-  { id: "notifications", title: "Notifications", icon: LuBell },
+  { id: "Meetings", title: "Schedule Meeting", icon: LuCalendar }, // Changed icon here
+  { id: "notifications", title: "Notifications", icon: LuBell }, // Removed Reports
 ];
 
 const Sidebar = () => {

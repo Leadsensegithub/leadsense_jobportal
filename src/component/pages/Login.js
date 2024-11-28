@@ -60,7 +60,7 @@ const Login = () => {
 
   function handleLoginButtonStudent() {
     if (data.mail === DummyData.student.mail && data.password === DummyData.student.password) {
-      navigate("dasboard");
+      navigate("lastpage");
     } else {
       setValidation("Invalid credentials for Student");
     }
@@ -68,7 +68,7 @@ const Login = () => {
 
   function handleLoginButtonCompany() {
     if (data.mail === DummyData.company.mail && data.password === DummyData.company.password) {
-      navigate("/lastpage");
+      navigate("/dasboard");
     } else {
       setValidation("Invalid credentials for Company");
     }
