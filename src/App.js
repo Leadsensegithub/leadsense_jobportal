@@ -74,7 +74,7 @@ function App() {
         <Route path="/register" element={<StudentRegister />} />
         <Route path="/companyotp" element={<CompanyOtp/>} />
         <Route path="/otp" element={<OTP onNext={handleProgress} />} />
-        <Route path="/lastpage" element={<Last/>} />
+        <Route path="/login/lastpage" element={<Last/>} />
         <Route path="/workstatus" element={<WorkStatus />} />
         <Route path="/pgdetails" element={<PgForm />} />
         <Route path="/ugdetails" element={<UgForm />} />

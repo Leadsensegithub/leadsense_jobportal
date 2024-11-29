@@ -35,7 +35,6 @@ function Last() {
     resume: React.createRef(),
   });
 
-
   function handleButton(label) {
     setLinkData((prevLinks) =>
       prevLinks.map((link) =>
@@ -61,10 +60,14 @@ function Last() {
             <p className="text-start mb-2 mt-2">Name: Tina</p>
             <p className="text-start mb-2">E-mail: tina@gmail.com</p>
             <p className="text-start mb-2">Phone: 093284181</p>
-            <p className="text-start mb-2">Role: digital marketing</p>
+            <p className="text-start mb-2">Role: Digital Marketing</p>
           </div>
           <div className="mr-md-4">
-            <img src={Assets.Vedio} style={{width:"180px",height:"160px",border:""}} alt="Loading.."></img>
+            <video
+              src={Assets.careervideo}
+              className="styled-video"
+              controls
+            />
           </div>
         </div>
 
@@ -122,51 +125,53 @@ function Last() {
                       </div>
                     </div>
                   </div>
+
                   <div
                     className="col-12 card m-2 p-3"
                     id="educationDetails"
                     ref={sectionRefs.current.educationDetails}
                   >
-                    <h1 className="text-start">Educations</h1>
+                    <h1 className="text-start">Education</h1>
                     <div className="row">
                       <div className="col-md-6 text-start">
                         <h3>Post Graduate</h3>
-                        <p>College Name :</p>
-                        <p>Course:</p>
-                        <p>Specialization:</p>
-                        <p>Certificate:</p>
+                        <p>College Name: XYZ University</p>
+                        <p>Course: MBA</p>
+                        <p>Specialization: Digital Marketing</p>
+                        <p>Certificate: Yes</p>
                       </div>
                       <div className="col-md-6 text-start">
                         <h3>Under Graduate</h3>
-                        <p>College Name :</p>
-                        <p>Course:</p>
-                        <p>Specialization:</p>
-                        <p>Certificate:</p>
+                        <p>College Name: ABC College</p>
+                        <p>Course: BBA</p>
+                        <p>Specialization: Business Administration</p>
+                        <p>Certificate: Yes</p>
                       </div>
                     </div>
                     <div className="row">
                       <div className="col-md-6 text-start">
                         <h3>Class XII</h3>
-                        <p>College Name :</p>
-                        <p>Course:</p>
-                        <p>Specialization:</p>
-                        <p>Certificate:</p>
+                        <p>School: XYZ School</p>
+                        <p>Course: Science</p>
+                        <p>Specialization: Biology</p>
+                        <p>Certificate: Yes</p>
                       </div>
                       <div className="col-md-6 text-start">
                         <h3>Class X</h3>
-                        <p>College Name :</p>
-                        <p>Course:</p>
-                        <p>Specialization:</p>
-                        <p>Certificate:</p>
+                        <p>School: XYZ School</p>
+                        <p>Course: General Studies</p>
+                        <p>Specialization: General</p>
+                        <p>Certificate: Yes</p>
                       </div>
                     </div>
                   </div>
+
                   <div
                     className="col-12 card m-2 p-3"
                     id="profileSummary"
                     ref={sectionRefs.current.profileSummary}
                   >
-                    <h1 className="text-start">Profile summary</h1>
+                    <h1 className="text-start">Profile Summary</h1>
                     <p className="text-start">
                       Detail-oriented and data-driven Digital Marketing Analyst
                       with a passion for leveraging analytical skills to
@@ -180,33 +185,36 @@ function Last() {
                       objectives.
                     </p>
                   </div>
+
                   <div
                     className="col-12 card m-2 text-start p-3"
                     id="personalDetails"
                     ref={sectionRefs.current.personalDetails}
                   >
                     <h1 className="text-start">Personal Details</h1>
-                    <p>Father's Occupation :</p>
-                    <p>Mother's Occupation :</p>
-                    <p>Siblings :</p>
-                    <p>Current City :</p>
-                    <p>State :</p>
-                    <p>Ready to Relocate :</p>
+                    <p>Father's Occupation: Engineer</p>
+                    <p>Mother's Occupation: Teacher</p>
+                    <p>Siblings: 2 Brothers</p>
+                    <p>Current City: Chennai</p>
+                    <p>State: Tamil Nadu</p>
+                    <p>Ready to Relocate: Yes</p>
                   </div>
+
                   <div
                     className="col-12 card m-2 text-start p-3"
                     id="EmploymentDetails"
                     ref={sectionRefs.current.EmploymentDetails}
                   >
                     <h1 className="text-start">Employment Information</h1>
-                    <p>Company Name :</p>
-                    <p>Domain :</p>
-                    <p>PF Number Present :</p>
-                    <p>Company Location :</p>
-                    <p>Current Salary :</p>
-                    <p>Expected Salary :</p>
-                    <p>Years of Experience :</p>
+                    <p>Company Name: ABC Corp.</p>
+                    <p>Domain: Digital Marketing</p>
+                    <p>PF Number Present: Yes</p>
+                    <p>Company Location: Chennai</p>
+                    <p>Current Salary: ₹6,00,000</p>
+                    <p>Expected Salary: ₹8,00,000</p>
+                    <p>Years of Experience: 3</p>
                   </div>
+
                   <div
                     className="col-12 card m-2 text-start p-3"
                     id="resume"
@@ -214,7 +222,7 @@ function Last() {
                   >
                     <h1 className="text-start">Resume</h1>
                     <p>Please upload your resume</p>
-                    <input type="file"></input>
+                    <input type="file" />
                   </div>
                 </div>
               </div>

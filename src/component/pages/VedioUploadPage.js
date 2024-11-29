@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
  
 import PageHeader from "../com/PageHeader";
 import Assets from "../assets/Assets";
-import vedio from "../assets/vedio.mp4"
+import vedio from "../assets/careervideo.mp4"
 const VedioUploadPage = ({ onNext }) => {
   const nav = useNavigate();
   const [file, setFile] = useState(null);

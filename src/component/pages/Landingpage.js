@@ -77,12 +77,12 @@ const LandingPage = () => {
     <div>
       <div className="landingPage">
         <DefaultHeader />
-        <div className="imgs">
+        <div style={{marginRight:"0px"}} className="imgs">
           <img src={Assets?.Top} alt="top"></img>
         </div>
      
 
-        <div style={{ marginLeft: "70px", marginTop: "180px" }} className="container">
+        <div style={{ marginLeft: "70px", marginTop: "165px" }} className="container">
       <div className="row">
         <div className="col-12">
           <div className="row bg-white p-2 rounded-3 shadow-sm align-items-center position-relative">
@@ -198,7 +198,7 @@ const LandingPage = () => {
             <div className="col-12 col-sm-4 col-md-2">
               <button
                 className="btn btn-danger btn-sm w-100"
-                style={{ padding: "10px", fontSize: "larger",  marginLeft:"40px"}}
+                style={{ padding: "10px", fontSize: "larger"}}
               >
                 Search
               </button>
@@ -206,21 +206,23 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-    </div>
+      </div>
 
       </div>
     </div>
  
 
 
-<div className="media" style={{marginTop:"50px", paddingLeft:"60px"}}>
-<div className="header-content">
-  <h1>Find Your Next Career Opportunity</h1>
-  <p className="tagline">Your gateway to top jobs and opportunities</p>
-  <span>Discover new roles that match your skills and ambitions.</span>
-  <span>Apply effortlessly and take the next step in your career journey.</span>
-  <button style={{backgroundColor:" #AFC9F3"}} className="btn btn-primary text-dark">Join Us Today!</button>
-</div>
+     <div className="media" style={{ paddingLeft: "45px", marginTop:"5px"}}>
+  <div className="header-content">
+    <h1>Find Your Next Career Opportunity</h1>
+    <p className="tagline">Your gateway to top jobs and opportunities</p>
+    <span>Discover new roles that match your skills and ambitions.</span>
+    <span>Apply effortlessly and take the next step in your career journey.</span>
+    <button style={{ backgroundColor: "#AFC9F3" }} className="btn btn-primary text-dark">
+      Join Us Today!
+    </button>
+  </div>
 </div>
    
 
