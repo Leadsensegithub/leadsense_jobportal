@@ -44,6 +44,7 @@ function App() {
   const [startProgress, setStartProgress] = useState(false);
 
   const currentStep = routeProgressMap[location.pathname];
+  console.log('jjjjjjjjjjjjjjjjjjjjjj')
 
   useEffect(() => {
     const progressStarted = localStorage.getItem('startProgress') === 'true';
