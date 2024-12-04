@@ -166,6 +166,11 @@
 }
 
  
-
+.buy_card:hover .card_benefits li:before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: white; /* Change the tick mark to white on hover */
+}
  
  

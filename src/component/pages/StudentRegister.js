@@ -82,10 +82,13 @@ const StudentRegister = () => {
   }
 
   return (
+    <>
+    
+   <PageHeader />
     <div>
       
     <div className="container mb-5 p-5">
-    <PageHeader/>
+   
       {loading ? <Loader /> : null}
       <div className="card shadow p-5 mt-5">
         <form onSubmit={handleSubmit}>
@@ -209,7 +212,7 @@ const StudentRegister = () => {
       </div>
       </div>
     </div>
-
+    </>
   );
 };
 

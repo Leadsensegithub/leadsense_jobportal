@@ -137,23 +137,207 @@
   }
   
 
-  .styled-video {
-    width: 180px;
-    height: 160px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border: 2px solid #fff;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 50px;
-     
-  }
   
-  .styled-video:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  }
+
+  /* Simplified and Clean Style */
+#resume a {
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s ease, color 0.3s ease;
+  margin-top: 15px;
+}
+
+#resume a:hover {
+  color: #28a745; /* Green color on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+#resume .form-control-lg {
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+#resume .text-muted {
+  font-style: italic;
+  color: #888;
+  margin-top: 15px;
+}
+
+
+
  
 
+/* Modal Overlay - covering the entire screen */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6); /* Dark semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+}
+
+/* Modal Dialog Box */
+.modal-dialog {
+  background: white;
+  border-radius: 10px;
+  width: 80%; /* Slightly larger width */
+  max-width: 700px; /* Larger max-width */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1051; /* Ensure modal is on top */
+  padding: 30px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Fade-in Animation for Modal */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal Header (Close button and title) */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+/* Modal Title */
+.modal-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Close Button */
+.close {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Form Inputs */
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Modal Footer (Save and Close buttons) */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.modal-footer button {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Modal Overlay - covering the entire screen */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6); /* Dark semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+}
+
+/* Modal Dialog Box */
+.modal-dialog {
+  background: white;
+  border-radius: 10px;
+  width: 80%; /* Slightly larger width */
+  max-width: 700px; /* Larger max-width */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1051; /* Ensure modal is on top */
+  padding: 30px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Fade-in Animation for Modal */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal Header (Close button and title) */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+/* Modal Title */
+.modal-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Close Button */
+.close {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Form Inputs */
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Modal Footer (Save and Close buttons) */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.modal-footer button {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Blur effect for background when modal is active */
+body.blur-background {
+  pointer-events: none;
+  overflow: hidden;
+} 
+
+
+.video-player{
+  width: 320px;
+  border-radius: 10px;
+}
   @media screen and (max-width: 768px) {
     .container {
       padding: 15px;

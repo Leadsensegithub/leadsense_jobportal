@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Loader from "../com/Loader";
 import PageHeader from "../com/PageHeader";
 import makeAnimated from "react-select/animated";
+import ProgressBar from "../com/ProgressBar";
 
 const WorkStatus = () => {
   const nav = useNavigate();
@@ -109,8 +110,11 @@ const WorkStatus = () => {
   };
 
   return (
+    <>
+    <PageHeader />
+ 
     <div>
-      <PageHeader />
+    
       {loading ? <Loader /> : <></>}
       <div className="container mt-4">
         <div className="d-flex justify-content-start my-3 mb-0">
@@ -190,6 +194,7 @@ const WorkStatus = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

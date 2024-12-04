@@ -78,7 +78,7 @@ const LandingPage = () => {
       <div className="landingPage">
         <DefaultHeader />
         <div style={{marginRight:"0px"}} className="imgs">
-          <img src={Assets?.Top} alt="top"></img>
+          <img src={Assets.Top} alt="top"></img>
         </div>
      
 

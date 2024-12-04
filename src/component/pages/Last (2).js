@@ -3,6 +3,8 @@ import PageHeader from "../com/PageHeader";
 import QuickLinks from "../com/QuickLinks";
 import "../css/Last.css";
 import Assets from "../assets/Assets";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; // For toast styles
 
 function Last() {
   const [linksData, setLinkData] = useState([
@@ -50,26 +52,132 @@ function Last() {
       targetSection.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }
+ 
+  
+   // State to hold values of editable fields and resume file
+   const [formData, setFormData] = useState({
+    careerPreference: { workStatus: 'Fresher', city: 'Chennai' },
+    educationDetails: {
+      postGraduate: { collegeName: 'XYZ University', course: 'MBA', specialization: 'Digital Marketing', certificate: true },
+      underGraduate: { collegeName: 'ABC College', course: 'BBA', specialization: 'Business Administration', certificate: true },
+    },
+    profileSummary: 'Detail-oriented and data-driven Digital Marketing Analyst with a passion for leveraging analytical skills to optimize online marketing strategies.',
+    personalDetails: { fatherOccupation: 'Engineer', motherOccupation: 'Teacher', siblings: 2, currentCity: 'Chennai', state: 'Tamil Nadu', readyToRelocate: true },
+    employmentDetails: { companyName: 'ABC Corp.', domain: 'Digital Marketing', pfNumberPresent: true, companyLocation: 'Chennai', currentSalary: 600000, expectedSalary: 800000, yearsOfExperience: 3 },
+    resume: null, // Store the uploaded file for resume
+  });
+
+  // State to toggle edit mode for sections
+  const [isEditing, setIsEditing] = useState({
+    careerPreference: false,
+    educationDetails: false,
+    profileSummary: false,
+    personalDetails: false,
+    employmentDetails: false,
+    resume: false, // For resume section
+  });
+
+  // Toggle edit mode for a section
+  const toggleEdit = (section) => {
+    setIsEditing((prevState) => ({
+      ...prevState,
+      [section]: !prevState[section],
+    }));
+  };
+
+  // Handle save for each section
+  const handleSave = (section) => {
+    // Show a toast message after saving
+    toast.success('Saved!', {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 2000, // Toast message will auto close after 2 seconds
+    });
+
+    setIsEditing((prevState) => ({
+      ...prevState,
+      [section]: false,
+    }));
+  };
+
+  // Handle input change for editable fields
+  const handleInputChange = (section, field, value) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [section]: {
+        ...prevState[section],
+        [field]: value,
+      },
+    }));
+  };
+
+  // Handle file upload for the resume section
+  const handleFileChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      resume: e.target.files[0], // Update the resume property in the state
+    }));
+  };
+
+ 
 
   return (
     <>
       <PageHeader />
       <div className="">
-        <div className="container d-flex justify-content-between flex-md-row my-5">
-          <div className="mr-md-4">
-            <p className="text-start mb-2 mt-2">Name: Tina</p>
-            <p className="text-start mb-2">E-mail: tina@gmail.com</p>
-            <p className="text-start mb-2">Phone: 093284181</p>
-            <p className="text-start mb-2">Role: Digital Marketing</p>
-          </div>
-          <div className="mr-md-4">
-            <video
-              src={Assets.careervideo}
-              className="styled-video"
-              controls
-            />
-          </div>
-        </div>
+      <div className="container flex-md-row my-5 about-contain">
+  <div className="table-container">
+    <table className="table table-bordered table-striped">
+      <tbody>
+        <tr>
+          <td className="label">Name :</td>
+          <td>Tina</td>
+        </tr>
+        <tr>
+          <td className="label">E-mail :</td>
+          <td>tina@gmail.com</td>
+        </tr>
+        <tr>
+          <td className="label">Phone :</td>
+          <td>093284181</td>
+        </tr>
+        <tr>
+          <td className="label">Department :</td>
+          <td>Marketing & Sales</td>
+        </tr>
+        <tr>
+          <td className="label">Experience :</td>
+          <td>5 years in SEO, PPC, and Content Marketing</td>
+        </tr>
+        <tr>
+          <td className="label">Key Skills :</td>
+          <td>SEO, Google Ads, Social Media Strategy, Analytics</td>
+        </tr>
+        <tr>
+          <td className="label">Current Project :</td>
+          <td>Leading a product launch campaign for XYZ Corp., optimizing digital channels for higher engagement and ROI.</td>
+        </tr>
+        <tr>
+          <td className="label">Recent Achievement:</td>
+          <td>Increased organic traffic by 30% through targeted SEO strategies and high-performing content.</td>
+        </tr>
+        <tr>
+          <td className="label">Location :</td>
+          <td>Chennai</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div className="container">
+    <div className="video-container">
+      <video className="video-player" controls>
+        <source src={Assets.careervideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</div>
+
 
         <div className="container-fluid bg-dark text-white p-4 p-md-5 mt-3 w-100">
           <h1>Career Objective</h1>
@@ -85,9 +193,7 @@ function Last() {
           </p>
         </div>
 
-        <div className="container d-flex justify-content-end mt-2">
-          <button className="btn btn-dark p-2">Edit</button>
-        </div>
+        
 
         <div className="container row m-md-0 m-3">
           {size && (
@@ -104,130 +210,373 @@ function Last() {
               </aside>
             </div>
           )}
-          <div className="col-md-9">
-            <main>
-              <div>
-                <div className="row ml-md-5">
-                  <div
-                    className="col-12 card m-2 p-3"
-                    id="workPreferenceDetails"
-                    ref={sectionRefs.current.workPreferenceDetails}
-                  >
-                    <h1 className="text-start">Career Preference</h1>
-                    <div className="row">
-                      <div className="col-md-6 text-start">
-                        <h3>Work status</h3>
-                        <p>Fresher</p>
-                      </div>
-                      <div className="col-md-6 text-start">
-                        <h3>City</h3>
-                        <p>Chennai</p>
-                      </div>
-                    </div>
-                  </div>
+ <div className="col-md-9">
+      <main>
+        <div>
+         <div>
+          <div className="row ml-md-5">
+            {/* Career Preference Section */}
+            <div className="col-12 card m-2 p-3" id="workPreferenceDetails">
+  <div className="d-flex justify-content-between">
+    <h1 className="text-start">Career Preference</h1>
+    {isEditing.careerPreference ? (
+      <button className="btn btn-success" onClick={() => handleSave('careerPreference')}>Save</button>
+    ) : (
+      <button className="btn btn-primary" onClick={() => toggleEdit('careerPreference')}>
+        <i className="fas fa-edit"></i>
+      </button>
+    )}
+  </div>
+  {isEditing.careerPreference ? (
+    <div className="row">
+      <div className="col-md-6 text-start">
+        <h3>Work status</h3>
+        <input 
+          type="text" 
+          defaultValue={formData.careerPreference.workStatus} 
+          onBlur={(e) => handleInputChange('careerPreference', 'workStatus', e.target.value)} 
+        />
+      </div>
+      <div className="col-md-6 text-start">
+        <h3>City</h3>
+        <input 
+          type="text" 
+          defaultValue={formData.careerPreference.city} 
+          onBlur={(e) => handleInputChange('careerPreference', 'city', e.target.value)} 
+        />
+      </div>
+    </div>
+  ) : (
+    <div className="row">
+      <div className="col-md-6 text-start">
+        <h3>Work status</h3>
+        <p>{formData.careerPreference.workStatus}</p>
+      </div>
+      <div className="col-md-6 text-start">
+        <h3>City</h3>
+        <p>{formData.careerPreference.city}</p>
+      </div>
+    </div>
+  )}
+</div>
 
-                  <div
-                    className="col-12 card m-2 p-3"
-                    id="educationDetails"
-                    ref={sectionRefs.current.educationDetails}
-                  >
-                    <h1 className="text-start">Education</h1>
-                    <div className="row">
-                      <div className="col-md-6 text-start">
-                        <h3>Post Graduate</h3>
-                        <p>College Name: XYZ University</p>
-                        <p>Course: MBA</p>
-                        <p>Specialization: Digital Marketing</p>
-                        <p>Certificate: Yes</p>
-                      </div>
-                      <div className="col-md-6 text-start">
-                        <h3>Under Graduate</h3>
-                        <p>College Name: ABC College</p>
-                        <p>Course: BBA</p>
-                        <p>Specialization: Business Administration</p>
-                        <p>Certificate: Yes</p>
-                      </div>
-                    </div>
-                    <div className="row">
-                      <div className="col-md-6 text-start">
-                        <h3>Class XII</h3>
-                        <p>School: XYZ School</p>
-                        <p>Course: Science</p>
-                        <p>Specialization: Biology</p>
-                        <p>Certificate: Yes</p>
-                      </div>
-                      <div className="col-md-6 text-start">
-                        <h3>Class X</h3>
-                        <p>School: XYZ School</p>
-                        <p>Course: General Studies</p>
-                        <p>Specialization: General</p>
-                        <p>Certificate: Yes</p>
-                      </div>
-                    </div>
-                  </div>
 
-                  <div
-                    className="col-12 card m-2 p-3"
-                    id="profileSummary"
-                    ref={sectionRefs.current.profileSummary}
-                  >
-                    <h1 className="text-start">Profile Summary</h1>
-                    <p className="text-start">
-                      Detail-oriented and data-driven Digital Marketing Analyst
-                      with a passion for leveraging analytical skills to
-                      optimize online marketing strategies. Seeking to
-                      contribute to a dynamic marketing team where I can utilize
-                      my expertise in data analysis, market research, and
-                      digital advertising to drive brand growth and improve
-                      campaign performance. Committed to staying ahead of
-                      industry trends and utilizing innovative techniques to
-                      enhance customer engagement and achieve business
-                      objectives.
-                    </p>
-                  </div>
+      {/* Education Details Section */}
+      <div className="col-12 card m-2 p-3" id="educationDetails">
+  <div className="d-flex justify-content-between">
+    <h1 className="text-start">Education</h1>
+    {isEditing.educationDetails ? (
+      <button className="btn btn-success" onClick={() => handleSave('educationDetails')}>Save</button>
+    ) : (
+      <button className="btn btn-primary" onClick={() => toggleEdit('educationDetails')}>
+        <i className="fas fa-edit"></i>
+      </button>
+    )}
+  </div>
+  {isEditing.educationDetails ? (
+    <div className="row">
+      <div className="col-md-6 text-start">
+        <h3>Post Graduate - College Name</h3>
+        <input 
+          type="text" 
+          defaultValue={formData.educationDetails.postGraduate.collegeName} 
+          onBlur={(e) => handleInputChange('educationDetails', 'postGraduate', { 
+            ...formData.educationDetails.postGraduate, 
+            collegeName: e.target.value 
+          })} 
+        />
+        <h3>Post Graduate - Course</h3>
+        <input 
+          type="text" 
+          defaultValue={formData.educationDetails.postGraduate.course} 
+          onBlur={(e) => handleInputChange('educationDetails', 'postGraduate', { 
+            ...formData.educationDetails.postGraduate, 
+            course: e.target.value 
+          })} 
+        />
+        <h3>Post Graduate - Specialization</h3>
+        <input 
+          type="text" 
+          defaultValue={formData.educationDetails.postGraduate.specialization} 
+          onBlur={(e) => handleInputChange('educationDetails', 'postGraduate', { 
+            ...formData.educationDetails.postGraduate, 
+            specialization: e.target.value 
+          })} 
+        />
+        <h3>Certificate</h3>
+        <input 
+          type="checkbox" 
+          checked={formData.educationDetails.postGraduate.certificate} 
+          onChange={(e) => handleInputChange('educationDetails', 'postGraduate', { 
+            ...formData.educationDetails.postGraduate, 
+            certificate: e.target.checked 
+          })} 
+        />
+      </div>
+      <div className="col-md-6 text-start">
+        <h3>Under Graduate - College Name</h3>
+        <input 
+          type="text" 
+          defaultValue={formData.educationDetails.underGraduate.collegeName} 
+          onBlur={(e) => handleInputChange('educationDetails', 'underGraduate', { 
+            ...formData.educationDetails.underGraduate, 
+            collegeName: e.target.value 
+          })} 
+        />
+        <h3>Under Graduate - Course</h3>
+        <input 
+          type="text" 
+          defaultValue={formData.educationDetails.underGraduate.course} 
+          onBlur={(e) => handleInputChange('educationDetails', 'underGraduate', { 
+            ...formData.educationDetails.underGraduate, 
+            course: e.target.value 
+          })} 
+        />
+        <h3>Under Graduate - Specialization</h3>
+        <input 
+          type="text" 
+          defaultValue={formData.educationDetails.underGraduate.specialization} 
+          onBlur={(e) => handleInputChange('educationDetails', 'underGraduate', { 
+            ...formData.educationDetails.underGraduate, 
+            specialization: e.target.value 
+          })} 
+        />
+        <h3>Certificate</h3>
+        <input 
+          type="checkbox" 
+          checked={formData.educationDetails.underGraduate.certificate} 
+          onChange={(e) => handleInputChange('educationDetails', 'underGraduate', { 
+            ...formData.educationDetails.underGraduate, 
+            certificate: e.target.checked 
+          })} 
+        />
+      </div>
+    </div>
+  ) : (
+    <div className="row">
+      <div className="col-md-6 text-start">
+        <h3>Post Graduate</h3>
+        <p>College Name: {formData.educationDetails.postGraduate.collegeName}</p>
+        <p>Course: {formData.educationDetails.postGraduate.course}</p>
+        <p>Specialization: {formData.educationDetails.postGraduate.specialization}</p>
+        <p>Certificate: {formData.educationDetails.postGraduate.certificate ? 'Yes' : 'No'}</p>
+      </div>
+      <div className="col-md-6 text-start">
+        <h3>Under Graduate</h3>
+        <p>College Name: {formData.educationDetails.underGraduate.collegeName}</p>
+        <p>Course: {formData.educationDetails.underGraduate.course}</p>
+        <p>Specialization: {formData.educationDetails.underGraduate.specialization}</p>
+        <p>Certificate: {formData.educationDetails.underGraduate.certificate ? 'Yes' : 'No'}</p>
+      </div>
+    </div>
+  )}
+</div>
 
-                  <div
-                    className="col-12 card m-2 text-start p-3"
-                    id="personalDetails"
-                    ref={sectionRefs.current.personalDetails}
-                  >
-                    <h1 className="text-start">Personal Details</h1>
-                    <p>Father's Occupation: Engineer</p>
-                    <p>Mother's Occupation: Teacher</p>
-                    <p>Siblings: 2 Brothers</p>
-                    <p>Current City: Chennai</p>
-                    <p>State: Tamil Nadu</p>
-                    <p>Ready to Relocate: Yes</p>
-                  </div>
+            {/* Profile Summary Section */}
+            <div className="col-12 card m-2 p-3" id="profileSummary">
+  <div className="d-flex justify-content-between">
+    <h1 className="text-start">Profile Summary</h1>
+    {isEditing.profileSummary ? (
+      <button className="btn btn-success" onClick={() => handleSave('profileSummary')}>Save</button>
+    ) : (
+      <button className="btn btn-primary" onClick={() => toggleEdit('profileSummary')}>
+        <i className="fas fa-edit"></i>
+      </button>
+    )}
+  </div>
+  {isEditing.profileSummary ? (
+    <textarea
+      className="form-control"
+      defaultValue={formData.profileSummary}
+      onBlur={(e) => handleInputChange('profileSummary', '', e.target.value)}
+    />
+  ) : (
+    <p>{formData.profileSummary}</p>
+  )}
+</div>
 
-                  <div
-                    className="col-12 card m-2 text-start p-3"
-                    id="EmploymentDetails"
-                    ref={sectionRefs.current.EmploymentDetails}
-                  >
-                    <h1 className="text-start">Employment Information</h1>
-                    <p>Company Name: ABC Corp.</p>
-                    <p>Domain: Digital Marketing</p>
-                    <p>PF Number Present: Yes</p>
-                    <p>Company Location: Chennai</p>
-                    <p>Current Salary: ₹6,00,000</p>
-                    <p>Expected Salary: ₹8,00,000</p>
-                    <p>Years of Experience: 3</p>
-                  </div>
 
-                  <div
-                    className="col-12 card m-2 text-start p-3"
-                    id="resume"
-                    ref={sectionRefs.current.resume}
-                  >
-                    <h1 className="text-start">Resume</h1>
-                    <p>Please upload your resume</p>
-                    <input type="file" />
-                  </div>
-                </div>
-              </div>
-            </main>
+        {/* Personal Details Section */}
+        <div className="col-12 card m-2 p-3" id="personalDetails">
+  <div className="d-flex justify-content-between">
+    <h1 className="text-start">Personal Details</h1>
+    {isEditing.personalDetails ? (
+      <button className="btn btn-success" onClick={() => handleSave('personalDetails')}>Save</button>
+    ) : (
+      <button className="btn btn-primary" onClick={() => toggleEdit('personalDetails')}>
+        <i className="fas fa-edit"></i>
+      </button>
+    )}
+  </div>
+  {isEditing.personalDetails ? (
+    <div className="row">
+      <div className="col-md-6 text-start">
+        <h3>Father's Occupation</h3>
+        <input type="text" defaultValue={formData.personalDetails.fatherOccupation} onBlur={(e) => handleInputChange('personalDetails', 'fatherOccupation', e.target.value)} />
+      </div>
+      <div className="col-md-6 text-start">
+        <h3>Mother's Occupation</h3>
+        <input type="text" defaultValue={formData.personalDetails.motherOccupation} onBlur={(e) => handleInputChange('personalDetails', 'motherOccupation', e.target.value)} />
+      </div>
+      <div className="col-md-6 text-start">
+        <h3>Siblings</h3>
+        <input type="number" defaultValue={formData.personalDetails.siblings} onBlur={(e) => handleInputChange('personalDetails', 'siblings', e.target.value)} />
+      </div>
+      <div className="col-md-6 text-start">
+        <h3>Current City</h3>
+        <input type="text" defaultValue={formData.personalDetails.currentCity} onBlur={(e) => handleInputChange('personalDetails', 'currentCity', e.target.value)} />
+      </div>
+    </div>
+  ) : (
+    <div className="row">
+      <div className="col-md-6 text-start">
+        <h3>Father's Occupation</h3>
+        <p>{formData.personalDetails.fatherOccupation}</p>
+      </div>
+      <div className="col-md-6 text-start">
+        <h3>Mother's Occupation</h3>
+        <p>{formData.personalDetails.motherOccupation}</p>
+      </div>
+      <div className="col-md-6 text-start">
+        <h3>Siblings</h3>
+        <p>{formData.personalDetails.siblings}</p>
+      </div>
+      <div className="col-md-6 text-start">
+        <h3>Current City</h3>
+        <p>{formData.personalDetails.currentCity}</p>
+      </div>
+    </div>
+  )}
+</div>
+
+ {/* Employement Details Section */}
+<div className="col-12 card m-2 p-3" id="employmentDetails">
+  <div className="d-flex justify-content-between">
+    <h1 className="text-start">Employment Details</h1>
+    {isEditing.employmentDetails ? (
+      <button className="btn btn-success" onClick={() => handleSave('employmentDetails')}>Save</button>
+    ) : (
+      <button className="btn btn-primary" onClick={() => toggleEdit('employmentDetails')}>
+        <i className="fas fa-edit"></i>
+      </button>
+    )}
+  </div>
+  {isEditing.employmentDetails ? (
+    <div className="row">
+      <div className="col-md-6 text-start">
+        <h3>Company Name</h3>
+        <input type="text" defaultValue={formData.employmentDetails.companyName} onBlur={(e) => handleInputChange('employmentDetails', 'companyName', e.target.value)} />
+      </div>
+      <div className="col-md-6 text-start">
+        <h3>Domain</h3>
+        <input type="text" defaultValue={formData.employmentDetails.domain} onBlur={(e) => handleInputChange('employmentDetails', 'domain', e.target.value)} />
+      </div>
+      <div className="col-md-6 text-start">
+        <h3>Job Title</h3>
+        <input type="text" defaultValue={formData.employmentDetails.jobTitle} onBlur={(e) => handleInputChange('employmentDetails', 'jobTitle', e.target.value)} />
+      </div>
+      <div className="col-md-6 text-start">
+        <h3>Years of Experience</h3>
+        <input type="number" defaultValue={formData.employmentDetails.yearsOfExperience} onBlur={(e) => handleInputChange('employmentDetails', 'yearsOfExperience', e.target.value)} />
+      </div>
+      <div className="col-md-6 text-start">
+        <h3>Location</h3>
+        <input type="text" defaultValue={formData.employmentDetails.location} onBlur={(e) => handleInputChange('employmentDetails', 'location', e.target.value)} />
+      </div>
+      <div className="col-md-6 text-start">
+        <h3>PF Number Present</h3>
+        <input type="checkbox" checked={formData.employmentDetails.pfNumberPresent} onChange={(e) => handleInputChange('employmentDetails', 'pfNumberPresent', e.target.checked)} />
+      </div>
+      <div className="col-md-6 text-start">
+        <h3>Salary</h3>
+        <input type="number" defaultValue={formData.employmentDetails.currentSalary} onBlur={(e) => handleInputChange('employmentDetails', 'currentSalary', e.target.value)} />
+      </div>
+      <div className="col-md-6 text-start">
+        <h3>Employment Type</h3>
+        <input type="text" defaultValue={formData.employmentDetails.employmentType} onBlur={(e) => handleInputChange('employmentDetails', 'employmentType', e.target.value)} />
+      </div>
+    </div>
+  ) : (
+    <div className="row">
+      <div className="col-md-6 text-start">
+        <h3>Company Name</h3>
+        <p>{formData.employmentDetails.companyName}</p>
+      </div>
+      <div className="col-md-6 text-start">
+        <h3>Domain</h3>
+        <p>{formData.employmentDetails.domain}</p>
+      </div>
+      <div className="col-md-6 text-start">
+        <h3>Job Title</h3>
+        <p>{formData.employmentDetails.jobTitle}</p>
+      </div>
+      <div className="col-md-6 text-start">
+        <h3>Years of Experience</h3>
+        <p>{formData.employmentDetails.yearsOfExperience}</p>
+      </div>
+      <div className="col-md-6 text-start">
+        <h3>Location</h3>
+        <p>{formData.employmentDetails.location}</p>
+      </div>
+      <div className="col-md-6 text-start">
+        <h3>PF Number Present</h3>
+        <p>{formData.employmentDetails.pfNumberPresent ? 'Yes' : 'No'}</p>
+      </div>
+      <div className="col-md-6 text-start">
+        <h3>Salary</h3>
+        <p>{formData.employmentDetails.currentSalary}</p>
+      </div>
+      <div className="col-md-6 text-start">
+        <h3>Employment Type</h3>
+        <p>{formData.employmentDetails.employmentType}</p>
+      </div>
+    </div>
+  )}
+</div>
+
+<div className="container mt-4">
+      <div className="card p-4">
+        <h2 className="text-start text-danger">Resume</h2>
+        <div className="row">
+          <div className="col-md-12">
+            {isEditing.resume ? (
+              <>
+                <input
+                  type="file"
+                  onChange={handleFileChange}
+                  className="form-control"
+                />
+                <button
+                  onClick={() => handleSave('resume')}
+                  className="btn btn-primary mt-2"
+                >
+                  Save Resume
+                </button>
+              </>
+            ) : (
+              <>
+                <p>{formData.resume ? formData.resume.name : 'No file uploaded'}</p>
+                <button
+                  onClick={() => toggleEdit('resume')}
+                  className="btn btn-outline-secondary"
+                >
+                  {formData.resume ? 'Change Resume' : 'Upload Resume'}
+                </button>
+              </>
+            )}
           </div>
+        </div>
+      </div>
+    </div>
+    </div>
+      </div>
+    </div>
+
+
+
+ 
+      </main>
+    </div>
         </div>
       </div>
     </>
