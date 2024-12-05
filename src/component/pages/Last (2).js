@@ -3,9 +3,7 @@ import PageHeader from "../com/PageHeader";
 import QuickLinks from "../com/QuickLinks";
 import "../css/Last.css";
 import Assets from "../assets/Assets";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; // For toast styles
-
+ import 'react-toastify/dist/ReactToastify.css';  
 function Last() {
   const [linksData, setLinkData] = useState([
     { id: "workPreferenceDetails", label: "Career Preference", active: true },
@@ -16,91 +14,85 @@ function Last() {
     { id: "resume", label: "Resume", active: false },
   ]);
 
-  const [size, setSize] = useState(window.innerWidth > 768);
-  useEffect(() => {
-    const handleResize = () => {
-      setSize(window.innerWidth > 768);
-    };
+const [size, setSize] = useState(window.innerWidth > 768);
+useEffect(() => {
+  const handleResize = () => {
+    setSize(window.innerWidth > 768);
+  };
 
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  window.addEventListener("resize", handleResize);
+  return () => {
+    window.removeEventListener("resize", handleResize);
+  };
+}, []);
 
-  const sectionRefs = useRef({
-    workPreferenceDetails: React.createRef(),
-    educationDetails: React.createRef(),
-    profileSummary: React.createRef(),
-    personalDetails: React.createRef(),
-    EmploymentDetails: React.createRef(),
-    resume: React.createRef(),
-  });
+const sectionRefs = useRef({
+  workPreferenceDetails: React.createRef(),
+  educationDetails: React.createRef(),
+  profileSummary: React.createRef(),
+  personalDetails: React.createRef(),
+  EmploymentDetails: React.createRef(),
+  resume: React.createRef(),
+});
 
-  function handleButton(label) {
-    setLinkData((prevLinks) =>
-      prevLinks.map((link) =>
-        link.label === label
-          ? { ...link, active: true }
-          : { ...link, active: false }
-      )
-    );
+function handleButton(label) {
+  setLinkData((prevLinks) =>
+    prevLinks.map((link) =>
+      link.label === label
+        ? { ...link, active: true }
+        : { ...link, active: false }
+    )
+  );
 
-    const sectionId = linksData.find((link) => link.label === label)?.id;
-    const targetSection = sectionRefs.current[sectionId];
-    if (targetSection && targetSection.current) {
-      targetSection.current.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+  const sectionId = linksData.find((link) => link.label === label)?.id;
+  const targetSection = sectionRefs.current[sectionId];
+  if (targetSection && targetSection.current) {
+    targetSection.current.scrollIntoView({ behavior: "smooth", block: "start" });
   }
- 
-  
-   // State to hold values of editable fields and resume file
-   const [formData, setFormData] = useState({
-    careerPreference: { workStatus: 'Fresher', city: 'Chennai' },
-    educationDetails: {
-      postGraduate: { collegeName: 'XYZ University', course: 'MBA', specialization: 'Digital Marketing', certificate: true },
-      underGraduate: { collegeName: 'ABC College', course: 'BBA', specialization: 'Business Administration', certificate: true },
-    },
-    profileSummary: 'Detail-oriented and data-driven Digital Marketing Analyst with a passion for leveraging analytical skills to optimize online marketing strategies.',
-    personalDetails: { fatherOccupation: 'Engineer', motherOccupation: 'Teacher', siblings: 2, currentCity: 'Chennai', state: 'Tamil Nadu', readyToRelocate: true },
-    employmentDetails: { companyName: 'ABC Corp.', domain: 'Digital Marketing', pfNumberPresent: true, companyLocation: 'Chennai', currentSalary: 600000, expectedSalary: 800000, yearsOfExperience: 3 },
-    resume: null, // Store the uploaded file for resume
-  });
+}
 
-  // State to toggle edit mode for sections
-  const [isEditing, setIsEditing] = useState({
-    careerPreference: false,
-    educationDetails: false,
-    profileSummary: false,
-    personalDetails: false,
-    employmentDetails: false,
-    resume: false, // For resume section
-  });
+// State to hold values of editable fields and resume file
+const [formData, setFormData] = useState({
+  careerPreference: { workStatus: 'Fresher', city: 'Chennai' },
+  educationDetails: {
+    postGraduate: { collegeName: 'XYZ University', course: 'MBA', specialization: 'Digital Marketing', certificate: true },
+    underGraduate: { collegeName: 'ABC College', course: 'BBA', specialization: 'Business Administration', certificate: true },
+  },
+  profileSummary: 'Detail-oriented and data-driven Digital Marketing Analyst with a passion for leveraging analytical skills to optimize online marketing strategies.',
+  personalDetails: { fatherOccupation: 'Engineer', motherOccupation: 'Teacher', siblings: 2, currentCity: 'Chennai', state: 'Tamil Nadu', readyToRelocate: true },
+  employmentDetails: { companyName: 'ABC Corp.', domain: 'Digital Marketing', pfNumberPresent: true, companyLocation: 'Chennai', currentSalary: 600000, expectedSalary: 800000, yearsOfExperience: 3 },
+  resume: null, // Store the uploaded file for resume
+});
 
-  // Toggle edit mode for a section
-  const toggleEdit = (section) => {
-    setIsEditing((prevState) => ({
-      ...prevState,
-      [section]: !prevState[section],
-    }));
-  };
+// State to toggle edit mode for sections
+const [isEditing, setIsEditing] = useState({
+  careerPreference: false,
+  educationDetails: false,
+  profileSummary: false,
+  personalDetails: false,
+  employmentDetails: false,
+  resume: false, // For resume section
+});
 
-  // Handle save for each section
-  const handleSave = (section) => {
-    // Show a toast message after saving
-    toast.success('Saved!', {
-      position: toast.POSITION.TOP_RIGHT,
-      autoClose: 2000, // Toast message will auto close after 2 seconds
-    });
+// Toggle edit mode for a section
+const toggleEdit = (section) => {
+  setIsEditing((prevState) => ({
+    ...prevState,
+    [section]: !prevState[section],
+  }));
+};
 
-    setIsEditing((prevState) => ({
-      ...prevState,
-      [section]: false,
-    }));
-  };
+// Handle save for each section
+const handleSave = (section) => {
+  setIsEditing((prevState) => ({
+    ...prevState,
+    [section]: false,
+  }));
+};
 
-  // Handle input change for editable fields
-  const handleInputChange = (section, field, value) => {
+// Handle input change for editable fields
+const handleInputChange = (section, field, value) => {
+  if (field) {
     setFormData((prevState) => ({
       ...prevState,
       [section]: {
@@ -108,15 +100,21 @@ function Last() {
         [field]: value,
       },
     }));
-  };
-
-  // Handle file upload for the resume section
-  const handleFileChange = (e) => {
+  } else {
     setFormData((prevState) => ({
       ...prevState,
-      resume: e.target.files[0], // Update the resume property in the state
+      [section]: value,
     }));
-  };
+  }
+};
+
+// Handle file upload for the resume section
+const handleFileChange = (e) => {
+  setFormData((prevState) => ({
+    ...prevState,
+    resume: e.target.files[0], // Update the resume property in the state
+  }));
+};
 
  
 
@@ -179,9 +177,9 @@ function Last() {
 </div>
 
 
-        <div className="container-fluid bg-dark text-white p-4 p-md-5 mt-3 w-100">
-          <h1>Career Objective</h1>
-          <p>
+        <div className="container-fluid bg-dark text-white p-4 p-md-5 mt-3 w-100  ">
+          <h1 className="texr-center">Career Objective</h1>
+          <p className="text-left">
             Detail-oriented and data-driven Digital Marketing Analyst with a
             passion for leveraging analytical skills to optimize online
             marketing strategies. Seeking to contribute to a dynamic marketing
@@ -205,12 +203,12 @@ function Last() {
                   top: "0",
                   zIndex: "1000",
                 }}
-              >
+              > 
                 <QuickLinks links={linksData} onSelectedLabels={handleButton} />
               </aside>
             </div>
           )}
- <div className="col-md-9">
+ <div className="col-md-9 candidate-details" >
       <main>
         <div>
          <div>
@@ -220,7 +218,7 @@ function Last() {
   <div className="d-flex justify-content-between">
     <h1 className="text-start">Career Preference</h1>
     {isEditing.careerPreference ? (
-      <button className="btn btn-success" onClick={() => handleSave('careerPreference')}>Save</button>
+      <button className="btn btn-success " onClick={() => handleSave('careerPreference')}>Save</button>
     ) : (
       <button className="btn btn-primary" onClick={() => toggleEdit('careerPreference')}>
         <i className="fas fa-edit"></i>
@@ -373,7 +371,7 @@ function Last() {
 </div>
 
             {/* Profile Summary Section */}
-            <div className="col-12 card m-2 p-3" id="profileSummary">
+            <div className="col-12 card m-2 p-3 text-left" id="profileSummary">
   <div className="d-flex justify-content-between">
     <h1 className="text-start">Profile Summary</h1>
     {isEditing.profileSummary ? (

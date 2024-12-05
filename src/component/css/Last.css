@@ -284,59 +284,23 @@
   }
 }
 
-/* Modal Header (Close button and title) */
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 10px;
-}
-
-/* Modal Title */
-.modal-title {
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-
-/* Close Button */
-.close {
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-}
-
-/* Form Inputs */
-.form-group input {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-/* Modal Footer (Save and Close buttons) */
-.modal-footer {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-}
-
-.modal-footer button {
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-/* Blur effect for background when modal is active */
-body.blur-background {
-  pointer-events: none;
-  overflow: hidden;
-} 
-
+ 
+ 
 
 .video-player{
   width: 320px;
   border-radius: 10px;
+}
+
+.candidate-details p{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: large;
+  font-weight: 550;
+  
+}
+
+.candidate-details h3{
+  font-family: 'Times New Roman', Times, serif;
 }
   @media screen and (max-width: 768px) {
     .container {
@@ -356,3 +320,15 @@ body.blur-background {
     }
   }
   
+  @media screen and (max-width: 375px) {
+    .video-player{
+      width: 100px;
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+ .video-player{
+  width: 250px;
+ }
+  }
+
